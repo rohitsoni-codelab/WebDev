@@ -1,3 +1,175 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header {
+  background-color: #1f2937;
+  padding: 20px 0;
+  color: white;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+}
+
+.navbar .nav-list {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar .nav-list a {
+  color: white;
+  text-decoration: none;
+}
+
+.hero {
+  padding: 60px 20px;
+  background-color: #111827;
+  color: white;
+}
+
+.hero-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-image {
+  border-radius: 50%;
+  max-width: 300px;
+}
+
+.hero-text h2 {
+  font-size: 28px;
+}
+
+.hero-text .highlight-role {
+  color: #10b981;
+}
+
+.btn-primary {
+  padding: 10px 20px;
+  background-color: #f43f5e;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  padding: 10px 20px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.projects {
+  background-color: #f1f5f9;
+  padding: 60px 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 32px;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.about {
+  padding: 60px 20px;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+
+.about-image {
+  max-width: 300px;
+  border-radius: 10px;
+}
+
+.about-text {
+  max-width: 700px;
+}
+
+.author {
+  font-weight: bold;
+}
+
+.contact {
+  background-color: #4b5563;
+  color: white;
+  padding: 60px 20px;
+}
+
+.contact-box {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer {
+  padding: 40px 20px;
+  background-color: #1f2937;
+  color: white;
+  text-align: center;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.footer-nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.social-icons a img {
+  margin: 0 10px;
+}
