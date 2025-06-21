@@ -1,370 +1,368 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rohit Soni | Portfolio</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon"  href="assets/r_logo.jpg" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <link rel="icon" href="assets/r_logo.jpg" />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {},
-        },
-      };
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {},
+            },
+        };
     </script>
     <style type="text/tailwindcss">
-      @tailwind base;
+        @tailwind base;
       @tailwind components;
       @tailwind utilities;
     </style>
     <style>
-  html {
-    scroll-behavior: smooth;
-  }
-</style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 
-  </head>
-  <body class="smooth-scroll w-full h-full bg-gray-900 dark:bg-gray-200 ">
+</head>
+
+<body class="smooth-scroll w-full h-full bg-gray-900 dark:bg-gray-200 ">
     <header class="lg:px-16 px-4 flex flex-wrap items-center py-4 shadow-lg">
-      <div class="flex-1 flex justify-between items-center">
-        <!-- <img class="sm:w-[10rem] w-[7rem]" src="https://techakim.com/sam/tg/7268/li/imgs/samlogo2.png" alt="Logo" /> -->
-        <span
-  class="text-5xl font-bold tracking-wide bg-gradient-to-r from-rose-400 via-pink-500 to-violet-500 bg-clip-text text-transparent font-[Playfair_Display]
-         hover:font-extrabold hover:scale-110 translate-x-50 transition-transform duration-300 ease-in-out"
->
-  Rohit Soni
-</span>
+        <div class="flex-1 flex justify-between items-center">
+            <!-- <img class="sm:w-[10rem] w-[7rem]" src="https://techakim.com/sam/tg/7268/li/imgs/samlogo2.png" alt="Logo" /> -->
+            <span class="text-5xl font-bold tracking-wide bg-gradient-to-r from-rose-400 via-pink-500 to-violet-500 bg-clip-text text-transparent font-[Playfair_Display]
+         hover:font-extrabold hover:scale-110 translate-x-50 transition-transform duration-300 ease-in-out">
+                Rohit Soni
+            </span>
 
-      </div>
-      <label for="menu-toggle" class="cursor-pointer md:hidden block">
-        <svg
-          class="fill-current w-6 h-6 text-gray-200 dark:text-gray-800"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-        >
-          <title>menu</title>
-          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-        </svg>
-      </label>
-      <input class="hidden" type="checkbox" id="menu-toggle" />
-      <div class="hidden md:flex md:items-center md:w-auto w-full" id="menu">
-        <nav>
-          <ul
-            class="md:flex items-center justify-between text-base text-gray-100 dark:text-gray-600 pt-4 md:pt-0"
-          >
-            <li>
-              <a class="md:p-4 py-3 px-0 block text-rose-500 hover:scale-110 transition-transform duration-300 hover:text-gr" href="#">Home</a>
-            </li>
-            <li><a class="md:p-4 py-3 px-0 block hover:scale-110 transition-transform duration-300 hover:text-gr" href="#about">About Me</a></li>
-           
-            <li><a class="md:p-4 py-3 px-0 block hover:scale-110 transition-transform duration-300 hover:text-gr" href="#projects">Projects</a></li>
-            <li>
-              <a class="md:p-4 py-3 px-0 block md:mb-0 mb-2 hover:scale-110 transition-transform duration-300" href="#contact"
-                >Contact</a
-              >
-            </li>
-          </ul>
-        </nav>
-      </div>
+        </div>
+        <label for="menu-toggle" class="cursor-pointer md:hidden block">
+            <svg class="fill-current w-6 h-6 text-gray-200 dark:text-gray-800" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20">
+                <title>menu</title>
+                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+            </svg>
+        </label>
+        <input class="hidden" type="checkbox" id="menu-toggle" />
+        <div class="hidden md:flex md:items-center md:w-auto w-full" id="menu">
+            <nav>
+                <ul
+                    class="md:flex items-center justify-between text-base text-gray-100 dark:text-gray-600 pt-4 md:pt-0">
+                    <li>
+                        <a class="md:p-4 py-3 px-0 block text-rose-500 hover:scale-110 transition-transform duration-300 hover:text-gr"
+                            href="#">Home</a>
+                    </li>
+                    <li><a class="md:p-4 py-3 px-0 block hover:scale-110 transition-transform duration-300 hover:text-gr"
+                            href="#about">About Me</a></li>
+
+                    <li><a class="md:p-4 py-3 px-0 block hover:scale-110 transition-transform duration-300 hover:text-gr"
+                            href="#projects">Projects</a></li>
+                    <li>
+                        <a class="md:p-4 py-3 px-0 block md:mb-0 mb-2 hover:scale-110 transition-transform duration-300"
+                            href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <div
-      class="h-full w-full mx-auto relative top-12 pb-20 xl:px-16 px-8 flex md:flex-row flex-col gap-4 justify-center items-center pt-4"
-    >
-      <div class="w-full relative">
-        <!-- <img class="shadow-2xl shadow-rose-600 animate-[spin_12s_linear_infinite] absolute left-0 right-0 rounded-full lg:max-w-[70%] max-w-[60%] mx-auto"
+        class="h-full w-full mx-auto relative top-12 pb-20 xl:px-16 px-8 flex md:flex-row flex-col gap-4 justify-center items-center pt-4">
+        <div class="w-full relative">
+            <!-- <img class="shadow-2xl shadow-rose-600 animate-[spin_12s_linear_infinite] absolute left-0 right-0 rounded-full lg:max-w-[70%] max-w-[60%] mx-auto"
         src="assets/file.jpg" alt="My Image" /> -->
-        <img
-          class="relative z-10 rounded-full lg:max-w-[70%] max-w-[60%] mx-auto outline outline-[.7rem] outline-offset-[.1rem] outline-rose-400/30"
-          src="assets/profile.jpg"
-          alt="My Image"
-        />
-      </div>
-      <div
-        class="w-full flex flex-col justify-center gap-4 md:text-left text-center text-white dark:text-gray-800 md:mt-0 sm:mt-8 mt-4"
-      >
-        <h1 class="md:text-4xl sm:text-3xl text-2xl font-semibold font-serif">
-          Hello, My name is Rohit Soni
-        </h1>
-        <h3 class="capitalize text-rose-400">
-          I'm <span class="typing text-green-500 dark:text-green-700"></span>
-        </h3>
-        <p>
-          I am a Software developer and here is my portfolio website. Here
-          you'll learn about my journey as a software developer.
-        </p>
-        <div class="sm:mt-4 mt-2">
-         <button class="px-6 py-1 text-white rounded-sm bg-gradient-to-r from-rose-500 to-rose-500 bg-[length:200%_100%] bg-left hover:from-rose-500 hover:to-green-500 hover:bg-right transition-all duration-500 ease-in-out hover:scale-110">
-  Get In Touch
-</button>
-
+            <img class="relative z-10 rounded-full lg:max-w-[70%] max-w-[60%] mx-auto outline outline-[.7rem] outline-offset-[.1rem] outline-rose-400/30"
+                src="assets/profile.jpg" alt="My Image" />
         </div>
-      </div>
+        <div
+            class="w-full flex flex-col justify-center gap-4 md:text-left text-center text-white dark:text-gray-800 md:mt-0 sm:mt-8 mt-4">
+            <h1 class="md:text-4xl sm:text-3xl text-2xl font-semibold font-serif">
+                Hello, My name is Rohit Soni
+            </h1>
+            <h3 class="capitalize text-rose-400">
+                I'm <span class="typing text-green-500 dark:text-green-700"></span>
+            </h3>
+            <p>
+                I am a Software developer and here is my portfolio website. Here
+                you'll learn about my journey as a software developer.
+            </p>
+            <div class="sm:mt-4 mt-2">
+                <button
+                    class="px-6 py-1 text-white rounded-sm bg-gradient-to-r from-rose-500 to-rose-500 bg-[length:200%_100%] bg-left hover:from-rose-500 hover:to-green-500 hover:bg-right transition-all duration-500 ease-in-out hover:scale-110">
+                    Get In Touch
+                </button>
+
+            </div>
+        </div>
     </div>
 
 
 
 
 
-<!-- project -->
-<div id="projects" class="projects">
-    <section class="px-4 py-12 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-7xl">
-      <!-- Section Header -->
-      <div class="mb-12 text-center">
-        <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">My Projects</h2>
-        <p class="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">Check out some of my recent work and case studies.</p>
-      </div>
+    <!-- project -->
+    <div id="projects" class="projects">
+        <section class="px-4 py-12 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl">
+                <!-- Section Header -->
+                <div class="mb-12 text-center">
+                    <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">My Projects</h2>
+                    <p class="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">Check out some of my recent work and
+                        case studies.</p>
+                </div>
 
-      <!-- Projects Grid -->
-      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- Project 1 -->
-        <div class="overflow-hidden rounded-lg bg-white shadow-md transition-transform duration-300 hover:scale-105">
-          <div class="h-48 overflow-hidden bg-blue-500">
-            <img src="assets/weather.jpg" alt="Project 1" class="h-full w-full object-cover" />
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-900">Weather App</h3>
-            <p class="mt-2 text-gray-600">Your Daily Forecast, Simplified and Always Accurate — Stay Ahead with
-              Real-Time Updates and Smart Weather Insights.</p>
-            <div class="mt-4 flex flex-wrap gap-2">
-              <span class="rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-800 hover:scale-110 transition-transform duration-300">API </span>
-              <span class="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-800 hover:scale-110 transition-transform duration-300">JSON</span>
+                <!-- Projects Grid -->
+                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                    <!-- Project 1 -->
+                    <div
+                        class="overflow-hidden rounded-lg bg-white shadow-md transition-transform duration-300 hover:scale-105">
+                        <div class="h-48 overflow-hidden bg-blue-500">
+                            <img src="assets/weather.jpg" alt="Project 1" class="h-full w-full object-cover" />
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900">Weather App</h3>
+                            <p class="mt-2 text-gray-600">Your Daily Forecast, Simplified and Always Accurate — Stay
+                                Ahead with
+                                Real-Time Updates and Smart Weather Insights.</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span
+                                    class="rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-800 hover:scale-110 transition-transform duration-300">API
+                                </span>
+                                <span
+                                    class="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-800 hover:scale-110 transition-transform duration-300">JSON</span>
+                            </div>
+                            <a href="https://zany-carnival-x5w5wqxjp54wh6vxw-5501.app.github.dev/Project/WeatherApp/"
+                                class="mt-4 inline-flex items-center text-blue-600 hover:text-blue-800">
+                                View case study
+                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-5 w-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div
+                        class="overflow-hidden rounded-lg bg-white shadow-md transition-transform duration-300 hover:scale-105">
+                        <div class="h-48 overflow-hidden bg-green-500">
+                            <img src="assets/tic_tak_toe.jpeg" alt="Project 2" class="h-full w-full object-cover" />
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900">Tic Tak Toe</h3>
+                            <p class="mt-2 text-gray-600">Classic Fun, Anytime — Challenge Friends or Play Solo in the
+                                Ultimate Tic
+                                Tac Toe Showdown!</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span
+                                    class="rounded-full bg-purple-100 px-3 py-1 text-xs font-medium text-purple-800 hover:scale-110 transition-transform duration-300">DOM
+                                    Manipulation</span>
+                                <span
+                                    class="rounded-full bg-yellow-100 px-3 py-1 text-xs font-medium text-yellow-800 hover:scale-110 transition-transform duration-300">Game
+                                    Logic/State Management</span>
+                            </div>
+                            <a href="#" class="mt-4 inline-flex items-center text-blue-600 hover:text-blue-800">
+                                View case study
+                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-5 w-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div
+                        class="overflow-hidden rounded-lg bg-white shadow-md transition-transform duration-300 hover:scale-105">
+                        <div class="h-48 overflow-hidden bg-purple-500">
+                            <img src="assets/color-changer.webp" alt="Project 3" class="h-full w-full object-cover" />
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900">Color-Changer</h3>
+                            <p class="mt-2 text-gray-600">Instantly switch up your vibe — click to change the background
+                                color and give your page a new feel!</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span
+                                    class="rounded-full bg-red-100 px-3 py-1 text-xs font-medium text-red-800 hover:scale-110 transition-transform duration-300">Event
+                                    Listener</span>
+                                <span
+                                    class="rounded-full bg-indigo-100 px-3 py-1 text-xs font-medium text-indigo-800 hover:scale-110 transition-transform duration-300">DOM
+                                    Styling </span>
+                            </div>
+                            <a href="https://zany-carnival-x5w5wqxjp54wh6vxw-5501.app.github.dev/Project/ColorChanger/"
+                                class="mt-4 inline-flex items-center text-blue-600 hover:text-blue-800">
+                                View case study
+                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-5 w-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View More Button -->
+                <div class="mt-12 text-center">
+                    <a href="#"
+                        class="inline-flex items-center rounded-md border border-transparent bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-700">
+                        View all projects </a>
+                </div>
             </div>
-            <a href="https://zany-carnival-x5w5wqxjp54wh6vxw-5501.app.github.dev/Project/WeatherApp/" class="mt-4 inline-flex items-center text-blue-600 hover:text-blue-800">
-              View case study
-              <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="overflow-hidden rounded-lg bg-white shadow-md transition-transform duration-300 hover:scale-105">
-          <div class="h-48 overflow-hidden bg-green-500">
-            <img src="assets/tic_tak_toe.jpeg" alt="Project 2" class="h-full w-full object-cover" />
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-900">Tic Tak Toe</h3>
-            <p class="mt-2 text-gray-600">Classic Fun, Anytime — Challenge Friends or Play Solo in the Ultimate Tic
-              Tac Toe Showdown!</p>
-            <div class="mt-4 flex flex-wrap gap-2">
-              <span class="rounded-full bg-purple-100 px-3 py-1 text-xs font-medium text-purple-800 hover:scale-110 transition-transform duration-300">DOM Manipulation</span>
-              <span class="rounded-full bg-yellow-100 px-3 py-1 text-xs font-medium text-yellow-800 hover:scale-110 transition-transform duration-300">Game Logic/State Management</span>
-            </div>
-            <a href="#" class="mt-4 inline-flex items-center text-blue-600 hover:text-blue-800">
-              View case study
-              <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="overflow-hidden rounded-lg bg-white shadow-md transition-transform duration-300 hover:scale-105">
-          <div class="h-48 overflow-hidden bg-purple-500">
-            <img src="assets/color-changer.webp" alt="Project 3" class="h-full w-full object-cover" />
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-900">Color-Changer</h3>
-            <p class="mt-2 text-gray-600">Instantly switch up your vibe — click to change the background color and give your page a new feel!</p>
-            <div class="mt-4 flex flex-wrap gap-2">
-              <span class="rounded-full bg-red-100 px-3 py-1 text-xs font-medium text-red-800 hover:scale-110 transition-transform duration-300">Event Listener</span>
-              <span class="rounded-full bg-indigo-100 px-3 py-1 text-xs font-medium text-indigo-800 hover:scale-110 transition-transform duration-300">DOM Styling </span>
-            </div>
-            <a href="https://zany-carnival-x5w5wqxjp54wh6vxw-5501.app.github.dev/Project/ColorChanger/" class="mt-4 inline-flex items-center text-blue-600 hover:text-blue-800">
-              View case study
-              <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- View More Button -->
-      <div class="mt-12 text-center">
-        <a href="#" class="inline-flex items-center rounded-md border border-transparent bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-700"> View all projects </a>
-      </div>
+        </section>
     </div>
-  </section>
-</div>
 
 
 
-    
+
     <!-- contact card -->
     <div id="contact" class="contact-card">
-      <div
-        class="min-h-screen bg-gray-500 py-6 flex flex-col justify-center sm:py-12"
-      >
-        <div class="relative py-3 sm:max-w-xl sm:mx-auto">
-          <div
-            class="absolute inset-0 bg-gradient-to-r from-indigo-700 to-purple-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"
-          ></div>
-          <div
-            class="text-white relative px-4 py-10 bg-indigo-400 shadow-lg sm:rounded-3xl sm:p-20"
-          >
-            <div class="text-center pb-6">
-              <h1 class="text-3xl">Contact Us!</h1>
+        <div class="min-h-screen bg-gray-500 py-6 flex flex-col justify-center sm:py-12">
+            <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-indigo-700 to-purple-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
+                </div>
+                <div class="text-white relative px-4 py-10 bg-indigo-400 shadow-lg sm:rounded-3xl sm:p-20">
+                    <div class="text-center pb-6">
+                        <h1 class="text-3xl">Contact Us!</h1>
 
-              <p class="text-gray-300">
-                Fill up the form below to send us a message.
-              </p>
+                        <p class="text-gray-300">
+                            Fill up the form below to send us a message.
+                        </p>
+                    </div>
+
+                    <form>
+                        <input
+                            class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            type="text" placeholder="Name" name="name" />
+
+                        <input
+                            class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            type="email" placeholder="Email" name="email" />
+
+                        <input
+                            class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            type="text" placeholder="Subject" name="_subject" />
+
+                        <textarea
+                            class="shadow mb-4 min-h-0 appearance-none border rounded h-64 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            type="text" placeholder="Type your message here..." name="message"
+                            style="height: 121px"></textarea>
+
+                        <div class="flex justify-between">
+                            <input
+                                class="shadow bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                type="submit" value="Send ➤" />
+                            <input
+                                class="shadow bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                type="reset" />
+                        </div>
+                    </form>
+                </div>
             </div>
-
-            <form>
-              <input
-                class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                type="text"
-                placeholder="Name"
-                name="name"
-              />
-
-              <input
-                class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                type="email"
-                placeholder="Email"
-                name="email"
-              />
-
-              <input
-                class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                type="text"
-                placeholder="Subject"
-                name="_subject"
-              />
-
-              <textarea
-                class="shadow mb-4 min-h-0 appearance-none border rounded h-64 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                type="text"
-                placeholder="Type your message here..."
-                name="message"
-                style="height: 121px"
-              ></textarea>
-
-              <div class="flex justify-between">
-                <input
-                  class="shadow bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                  type="submit"
-                  value="Send ➤"
-                />
-                <input
-                  class="shadow bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                  type="reset"
-                />
-              </div>
-            </form>
-          </div>
         </div>
-      </div>
     </div>
 
 
 
- <!-- about section -->
+    <!-- about section -->
     <div id="about" class="w-full max-w-7xl px-4 mx-auto sm:px-8 mt-24">
-      <blockquote
-        class="relative grid items-center bg-white shadow-xl md:grid-cols-3 rounded-xl"
-      >
-        <img
-          class="hidden object-cover w-full h-full rounded-l-xl md:block"
-          style="clip-path: polygon(0 0%, 100% 0%, 75% 100%, 0% 100%)"
-          src="assets/file.jpg"
-        />
+        <blockquote class="relative grid items-center bg-white shadow-xl md:grid-cols-3 rounded-xl">
+            <img class="hidden object-cover w-full h-full rounded-l-xl md:block"
+                style="clip-path: polygon(0 0%, 100% 0%, 75% 100%, 0% 100%)" src="assets/file.jpg" />
 
-        <article class="relative p-6 md:p-8 md:col-span-2">
-          <svg
-            class="absolute top-0 right-0 hidden w-24 h-24 -mt-12 -mr-12 text-primary-600 md:block"
-            width="256"
-            height="256"
-            viewBox="0 0 256 256"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M65.44 153.526V149.526H61.44H20.48C11.3675 149.526 4 142.163 4 133.105V51.4211C4 42.3628 11.3675 35 20.48 35H102.4C111.513 35 118.88 42.3628 118.88 51.4211V166.187C118.88 195.935 95.103 220.165 65.44 220.979V153.526ZM198.56 153.526V149.526H194.56H153.6C144.487 149.526 137.12 142.163 137.12 133.105V51.4211C137.12 42.3628 144.487 35 153.6 35H235.52C244.633 35 252 42.3628 252 51.4211V166.187C252 195.935 228.223 220.165 198.56 220.979V153.526Z"
-              stroke="currentColor"
-              stroke-width="8"
-            ></path>
-          </svg>
+            <article class="relative p-6 md:p-8 md:col-span-2">
+                <svg class="absolute top-0 right-0 hidden w-24 h-24 -mt-12 -mr-12 text-primary-600 md:block" width="256"
+                    height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M65.44 153.526V149.526H61.44H20.48C11.3675 149.526 4 142.163 4 133.105V51.4211C4 42.3628 11.3675 35 20.48 35H102.4C111.513 35 118.88 42.3628 118.88 51.4211V166.187C118.88 195.935 95.103 220.165 65.44 220.979V153.526ZM198.56 153.526V149.526H194.56H153.6C144.487 149.526 137.12 142.163 137.12 133.105V51.4211C137.12 42.3628 144.487 35 153.6 35H235.52C244.633 35 252 42.3628 252 51.4211V166.187C252 195.935 228.223 220.165 198.56 220.979V153.526Z"
+                        stroke="currentColor" stroke-width="8"></path>
+                </svg>
 
-          <div class="space-y-8">
-            <p">
-               Hi Everyone My name is Rohit Soni. I am a Full Stack Web Developer I have been working for last 3 years and
-            Currently I am Enhancing my skils by making projects.
-            I have hands-on experience with a versatile tech stack that includes both frontend and backend technologies.
-            </p>
-            <p>
-            On the frontend, I work with HTML5, CSS3, and modern JavaScript (ES6+), along with React.js to build dynamic
-            and responsive user interfaces. On the backend, I have a strong foundation in Java and C, which helps me
-            understand low-level programming concepts and object-oriented development. For version control, I use Git
-            through Git Bash and manage my projects on GitHub, enabling efficient collaboration and code management.
-            This combination of tools allows me to develop full-stack applications with a focus on clean code,
-            performance, and scalability.
-            </p>
-            <p>
-                 I work with a diverse tech stack that includes HTML, CSS, JavaScript, and React for building responsive
-            frontends, along with Java and C for backend and core programming. I use Git via Git Bash and GitHub for
-            version control and collaboration, ensuring smooth and efficient development workflows.
-            </p>
+                <div class="space-y-8">
+                    <p">
+                        Hi Everyone My name is Rohit Soni. I am a Full Stack Web Developer I have been working for last
+                        3 years and
+                        Currently I am Enhancing my skils by making projects.
+                        I have hands-on experience with a versatile tech stack that includes both frontend and backend
+                        technologies.
+                        </p>
+                        <p>
+                            On the frontend, I work with HTML5, CSS3, and modern JavaScript (ES6+), along with React.js
+                            to build dynamic
+                            and responsive user interfaces. On the backend, I have a strong foundation in Java and C,
+                            which helps me
+                            understand low-level programming concepts and object-oriented development. For version
+                            control, I use Git
+                            through Git Bash and manage my projects on GitHub, enabling efficient collaboration and code
+                            management.
+                            This combination of tools allows me to develop full-stack applications with a focus on clean
+                            code,
+                            performance, and scalability.
+                        </p>
+                        <p>
+                            I work with a diverse tech stack that includes HTML, CSS, JavaScript, and React for building
+                            responsive
+                            frontends, along with Java and C for backend and core programming. I use Git via Git Bash
+                            and GitHub for
+                            version control and collaboration, ensuring smooth and efficient development workflows.
+                        </p>
 
-            <footer class="flex items-center space-x-4 md:space-x-0">
-              <img
-                class="w-12 h-12 rounded-full md:hidden"
-                src="https://randomuser.me/api/portraits/men/68.jpg"
-              />
-              <span class="font-bold text-lg">Rohit Soni</span>
-            </footer>
-          </div>
-        </article>
-      </blockquote>
+                        <footer class="flex items-center space-x-4 md:space-x-0">
+                            <img class="w-12 h-12 rounded-full md:hidden"
+                                src="https://randomuser.me/api/portraits/men/68.jpg" />
+                            <span class="font-bold text-lg">Rohit Soni</span>
+                        </footer>
+                </div>
+            </article>
+        </blockquote>
     </div>
 
 
     <!-- footer -->
     <footer class="flex flex-col space-y-10 justify-center m-10">
-      <nav
-        class="flex justify-center flex-wrap gap-6 text-gray-500 font-medium"
-      >
-        <a class="hover:text-gray-900 hover:scale-110 transition-transform duration-300"" href="#">Home</a>
-        <a class="hover:text-gray-900 hover:scale-110 transition-transform duration-300"" href="#projects">Projects</a>   
-        <a class="hover:text-gray-900 hover:scale-110 transition-transform duration-300"" href="#contact">Contact</a>
-        <a class="hover:text-gray-900 hover:scale-110 transition-transform duration-300" href="#about">About</a>
-      </nav>
+        <nav class="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
+            <a class="hover:text-gray-900 hover:scale-110 transition-transform duration-300"" href=" #">Home</a>
+            <a class="hover:text-gray-900 hover:scale-110 transition-transform duration-300"" href="
+                #projects">Projects</a>
+            <a class="hover:text-gray-900 hover:scale-110 transition-transform duration-300"" href="
+                #contact">Contact</a>
+            <a class="hover:text-gray-900 hover:scale-110 transition-transform duration-300" href="#about">About</a>
+        </nav>
 
-      <div class="flex items-center justify-center gap-6 mt-6">
-  <!-- GitHub -->
-  <a href="https://github.com/rohitsoni-codelab" target="_blank" rel="noopener noreferrer">
-    <img src="https://pngimg.com/uploads/github/github_PNG40.png" alt="GitHub"
-         class="w-10 h-10 opacity-80 hover:opacity-100 hover:scale-110 transition-transform duration-300" />
-  </a>
+        <div class="flex items-center justify-center gap-6 mt-6">
+            <!-- GitHub -->
+            <a href="https://github.com/rohitsoni-codelab" target="_blank" rel="noopener noreferrer">
+                <img src="https://pngimg.com/uploads/github/github_PNG40.png" alt="GitHub"
+                    class="w-10 h-10 opacity-80 hover:opacity-100 hover:scale-110 transition-transform duration-300" />
+            </a>
 
-  <!-- HackerRank -->
-  <a href="https://www.hackerrank.com/profile/rohitsoni_lab" target="_blank" rel="noopener noreferrer">
-    <img src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/160_Hackerrank_logo_logos-1024.png" alt="HackerRank"
-         class="w-10 h-10 opacity-80 hover:opacity-100 hover:scale-110 transition-transform duration-300" />
-  </a>
+            <!-- HackerRank -->
+            <a href="https://www.hackerrank.com/profile/rohitsoni_lab" target="_blank" rel="noopener noreferrer">
+                <img src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/160_Hackerrank_logo_logos-1024.png"
+                    alt="HackerRank"
+                    class="w-10 h-10 opacity-80 hover:opacity-100 hover:scale-110 transition-transform duration-300" />
+            </a>
 
-  <!-- Example of other logos for comparison -->
-  <a href="https://www.linkedin.com/in/rohit-soni3084/" target="_blank" rel="noopener noreferrer">
-    <img src="https://pngimg.com/uploads/linkedIn/linkedIn_PNG8.png" alt="LinkedIn"
-         class="w-10 h-10 opacity-80 hover:opacity-100 hover:scale-110 transition-transform duration-300" />
-  </a>
-</div>
+            <!-- Example of other logos for comparison -->
+            <a href="https://www.linkedin.com/in/rohit-soni3084/" target="_blank" rel="noopener noreferrer">
+                <img src="https://pngimg.com/uploads/linkedIn/linkedIn_PNG8.png" alt="LinkedIn"
+                    class="w-10 h-10 opacity-80 hover:opacity-100 hover:scale-110 transition-transform duration-300" />
+            </a>
+        </div>
 
-      <p class="text-center text-gray-700 font-medium">
-        &copy;  All rights reservered.
-      </p>
+        <p class="text-center text-gray-700 font-medium">
+            &copy; All rights reservered.
+        </p>
     </footer>
 
 
@@ -372,21 +370,20 @@
 
 
     <!-- Typed.js for typing animation -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"
-      referrerpolicy="no-referrer"
-    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"
+        referrerpolicy="no-referrer"></script>
     <script>
-      var typed = new Typed(".typing", {
-        strings: [
-          "FullStack Developer",
-          "Dyizan's Intern",
-          "java Developer",
-        ],
-        typeSpeed: 100,
-        backSpeed: 60,
-        loop: true,
-      });
+        var typed = new Typed(".typing", {
+            strings: [
+                "FullStack Developer",
+                "Dyizan's Intern",
+                "java Developer",
+            ],
+            typeSpeed: 100,
+            backSpeed: 60,
+            loop: true,
+        });
     </script>
-  </body>
+</body>
+
 </html>
