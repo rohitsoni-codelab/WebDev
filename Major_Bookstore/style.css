@@ -1,0 +1,22 @@
+*{
+    margin: auto;
+    padding: 5px;
+}
+body{
+    background-color: #FADA7A;
+}
+header{
+    height: 40px;
+    width: auto;
+    background-color: #F5F0CD;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
+    padding: 2px;
+}
+nav{
+    display:flex;
+}
+.nav-list{
+    display:flex;
+}
