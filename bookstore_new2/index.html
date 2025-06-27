@@ -2,542 +2,695 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Haven - Online Bookstore</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simple Online Bookstore</title>
     <style>
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Basic Reset */
+        * {
+            box-sizing: border-box;
         }
 
-        @keyframes slideIn {
-            from { transform: translateX(100%); }
-            to { transform: translateX(0); }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        body.dark {
+            background-color: #121212;
+            color: #eee;
         }
 
-        .animate-fadeIn { animation: fadeIn 0.5s ease-out forwards; }
-        .animate-slideIn { animation: slideIn 0.3s ease-out forwards; }
-        .animate-pulse { animation: pulse 1.5s infinite; }
-
-        .book-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        header {
+            background-color: #0066cc;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
         }
 
-        .dark .book-card:hover {
-            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+        body.dark header {
+            background-color: #003366;
         }
 
-        .transition-all { transition: all 0.3s ease; }
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
 
-        /* Responsive adjustments */
-        @media (max-width: 640px) {
-            .hero-title { font-size: 2rem; line-height: 2.5rem; }
-            .hero-subtitle { font-size: 1rem; }
-            .cart-sidebar { width: 100%; }
-            .book-modal-content { flex-direction: column; }
-            .book-modal-image { width: 100%; margin-bottom: 1rem; }
-            .book-modal-details { width: 100%; }
-            .checkout-modal { width: 95%; margin: 0 auto; }
+        #toggleDark {
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+
+        #toggleDark:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .search-bar {
+            padding: 10px 20px;
+            background-color: #eee;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        body.dark .search-bar {
+            background-color: #222;
+        }
+
+        #searchInput {
+            width: 300px;
+            max-width: 90vw;
+            padding: 8px 12px;
+            font-size: 1rem;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        #searchInput:focus {
+            border-color: #0066cc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto 80px;
+            padding: 0 20px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .book {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            width: 170px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        body.dark .book {
+            background-color: #222;
+            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .book:hover {
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .book img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border-bottom: 1px solid #ddd;
+        }
+
+        body.dark .book img {
+            border-bottom: 1px solid #444;
+        }
+
+        .book-info {
+            padding: 10px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .title {
+            font-weight: 600;
+            font-size: 1rem;
+            margin: 5px 0;
+            flex-grow: 1;
+        }
+
+        .author {
+            font-size: 0.85rem;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        body.dark .author {
+            color: #aaa;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 10px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+        }
+
+        button {
+            flex-grow: 1;
+            padding: 6px 10px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            color: white;
+        }
+
+        .add-btn {
+            background-color: #28a745;
+        }
+
+        .add-btn:hover {
+            background-color: #218838;
+        }
+
+        .buy-btn {
+            background-color: #007bff;
+        }
+
+        .buy-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Cart styles */
+        .cart {
+            position: fixed;
+            top: 80px;
+            right: 0;
+            width: 320px;
+            max-height: calc(100vh - 90px);
+            background-color: white;
+            box-shadow: -3px 0 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            overflow-y: auto;
+            border-radius: 10px 0 0 10px;
+            z-index: 999;
+            transition: background-color 0.3s;
+            display: none;
+            /* Initially hidden */
+        }
+
+        body.dark .cart {
+            background-color: #1e1e1e;
+            color: #eee;
+            box-shadow: -3px 0 15px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Other styles remain unchanged */
+
+
+        /* Checkout button */
+        .checkout-btn {
+            background-color: #007bff;
+            color: white;
+            width: 100%;
+            padding: 10px 0;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .checkout-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+            .container {
+                justify-content: center;
+            }
+
+            .cart {
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                width: 100%;
+                max-height: 40vh;
+                border-radius: 15px 15px 0 0;
+            }
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            position: relative;
+            color: #333;
+        }
+
+        body.dark .modal-content {
+            background-color: #222;
+            color: #eee;
+        }
+
+        .close-btn {
+            color: #aaa;
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: black;
+        }
+
+        #paymentForm input {
+            width: 100%;
+            margin: 8px 0 16px;
+            padding: 8px;
+            box-sizing: border-box;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        body.dark #paymentForm input {
+            background-color: #333;
+            color: #eee;
+            border: 1px solid #555;
+        }
+
+        #paymentForm button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 0;
+            width: 100%;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background-color 0.3s;
+        }
+
+        #paymentForm button:hover {
+            background-color: #218838;
+        }
+
+        #paymentMessage {
+            margin-top: 15px;
+            font-weight: bold;
+            color: green;
+            text-align: center;
         }
     </style>
 </head>
 
-<body class="bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
-    <div class="min-h-screen">
-        <!-- Header -->
-        <header class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
-            <div class="container mx-auto px-4 py-3 sm:py-4 flex justify-between items-center">
-                <div class="flex items-center space-x-2">
-                    <i class="fas fa-book-open text-xl sm:text-2xl text-blue-600 dark:text-blue-400"></i>
-                    <h1 class="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white">Book Haven</h1>
-                </div>
-                <div class="flex items-center space-x-2 sm:space-x-4">
-                    <button id="cartBtn" class="relative p-1 sm:p-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
-                        <i class="fas fa-shopping-cart text-lg sm:text-xl"></i>
-                        <span id="cartCount" class="absolute -top-1 -right-1 bg-blue-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
-                    </button>
-                    <button id="themeToggle" class="p-1 sm:p-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
-                        <i id="themeIcon" class="fas fa-moon text-lg sm:text-xl"></i>
-                    </button>
-                </div>
-            </div>
-        </header>
+<body>
+    <header>
+        <h1>Simple Online Bookstore</h1>
+        <button id="toggleDark" aria-label="Toggle Dark Mode">🌙 Dark Mode</button>
+        <aside class="cart" aria-label="Shopping cart" id="cart">
+            <h2>Your Cart</h2>
+            <div id="cartItems"></div>
+            <div class="cart-total" id="cartTotal">Total: ₹0.00</div>
+            <button id="clearCartBtn" class="clear-btn">Clear Cart</button>
+            <button id="checkoutBtn" class="checkout-btn">Checkout</button>
+        </aside>
 
-        <!-- Main Content -->
-        <main class="container mx-auto px-4 py-6 sm:py-8">
-            <!-- Hero Section -->
-            <section class="mb-8 sm:mb-12 text-center animate-fadeIn">
-                <h2 class="hero-title text-3xl sm:text-4xl font-bold text-gray-800 dark:text-white mb-3 sm:mb-4">Discover Your Next Favorite Book</h2>
-                <p class="hero-subtitle text-base sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Browse our curated collection of bestsellers, classics, and hidden gems.</p>
-            </section>
+        <button id="cartButton" aria-label="View Cart">🛒 Cart</button>
 
-            <!-- Book Grid -->
-            <section class="mb-8 sm:mb-12">
-                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 dark:text-white mb-4 sm:mb-6">Featured Books</h3>
-                <div class="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6" id="bookGrid">
-                    <!-- Book cards will be inserted here by JavaScript -->
-                </div>
-            </section>
-        </main>
+    </header>
 
-        <!-- Shopping Cart Sidebar -->
-        <div id="cartSidebar" class="cart-sidebar fixed top-0 right-0 h-full w-full sm:w-96 bg-white dark:bg-gray-800 shadow-lg transform translate-x-full z-50 transition-transform duration-300 overflow-y-auto">
-            <div class="p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-                <h3 class="text-lg sm:text-xl font-bold text-gray-800 dark:text-white">Your Cart</h3>
-                <button id="closeCartBtn" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200">
-                    <i class="fas fa-times text-xl"></i>
-                </button>
-            </div>
-            <div id="cartItems" class="p-4">
-                <div class="text-center py-8 text-gray-500 dark:text-gray-400" id="emptyCartMessage">
-                    <i class="fas fa-shopping-cart text-4xl mb-4"></i>
-                    <p>Your cart is empty</p>
-                </div>
-            </div>
-            <div class="p-4 border-t border-gray-200 dark:border-gray-700">
-                <div class="flex justify-between mb-3 sm:mb-4">
-                    <span class="font-semibold text-gray-700 dark:text-gray-300">Subtotal:</span>
-                    <span id="cartSubtotal" class="font-bold text-gray-800 dark:text-white">$0.00</span>
-                </div>
-                <button id="checkoutBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 sm:py-3 px-4 rounded-lg transition-all animate-pulse">
-                    Proceed to Checkout
-                </button>
-            </div>
-        </div>
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search books by title or author..."
+            aria-label="Search books" />
+    </div>
 
-        <!-- Book Details Modal -->
-        <div id="bookModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-2 sm:p-4 opacity-0 pointer-events-none transition-opacity duration-300">
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transform translate-y-10 transition-transform duration-300">
-                <div class="p-4 sm:p-6">
-                    <div class="flex justify-between items-start mb-3 sm:mb-4">
-                        <div>
-                            <h3 id="modalBookTitle" class="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white"></h3>
-                            <p id="modalBookAuthor" class="text-sm sm:text-base text-gray-600 dark:text-gray-300"></p>
-                        </div>
-                        <button id="closeModalBtn" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200">
-                            <i class="fas fa-times text-xl"></i>
-                        </button>
-                    </div>
-                    <div class="flex flex-col md:flex-row gap-4 sm:gap-6">
-                        <div class="book-modal-image md:w-1/3">
-                            <img id="modalBookImage" src="" alt="" class="w-full h-auto rounded-lg shadow-md">
-                        </div>
-                        <div class="book-modal-details md:w-2/3">
-                            <p id="modalBookDescription" class="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-3 sm:mb-4"></p>
-                            <div class="flex items-center mb-3 sm:mb-4">
-                                <div class="flex text-yellow-400 mr-2">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                </div>
-                                <span id="modalBookRating" class="text-xs sm:text-sm text-gray-600 dark:text-gray-300"></span>
-                            </div>
-                            <div class="flex items-center justify-between mb-3 sm:mb-4">
-                                <span id="modalBookPrice" class="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white"></span>
-                                <button id="modalAddToCartBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 sm:py-2 px-3 sm:px-4 rounded-lg transition-all text-sm sm:text-base">
-                                    Add to Cart
-                                </button>
-                            </div>
-                            <div class="border-t border-gray-200 dark:border-gray-700 pt-3 sm:pt-4">
-                                <h4 class="font-semibold text-gray-800 dark:text-white mb-1 sm:mb-2">Details</h4>
-                                <ul class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 space-y-1">
-                                    <li><strong>Pages:</strong> <span id="modalBookPages"></span></li>
-                                    <li><strong>Publisher:</strong> <span id="modalBookPublisher"></span></li>
-                                    <li><strong>Language:</strong> <span id="modalBookLanguage"></span></li>
-                                    <li><strong>ISBN:</strong> <span id="modalBookISBN"></span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <main class="container" id="booksContainer">
+        <!-- Books will be shown here dynamically -->
+    </main>
 
-        <!-- Checkout Modal -->
-        <div id="checkoutModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-2 sm:p-4 opacity-0 pointer-events-none transition-opacity duration-300">
-            <div class="checkout-modal bg-white dark:bg-gray-800 rounded-lg shadow-xl w-full max-w-md transform translate-y-10 transition-transform duration-300">
-                <div class="p-4 sm:p-6">
-                    <div class="flex justify-between items-center mb-4 sm:mb-6">
-                        <h3 class="text-lg sm:text-xl font-bold text-gray-800 dark:text-white">Complete Your Purchase</h3>
-                        <button id="closeCheckoutBtn" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200">
-                            <i class="fas fa-times text-xl"></i>
-                        </button>
-                    </div>
-                    <form id="checkoutForm" class="space-y-3 sm:space-y-4">
-                        <div>
-                            <label for="cardNumber" class="block text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Card Number</label>
-                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" class="w-full px-3 sm:px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white text-sm sm:text-base">
-                        </div>
-                        <div class="grid grid-cols-2 gap-3 sm:gap-4">
-                            <div>
-                                <label for="expiryDate" class="block text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Expiry Date</label>
-                                <input type="text" id="expiryDate" placeholder="MM/YY" class="w-full px-3 sm:px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white text-sm sm:text-base">
-                            </div>
-                            <div>
-                                <label for="cvv" class="block text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">CVV</label>
-                                <input type="text" id="cvv" placeholder="123" class="w-full px-3 sm:px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white text-sm sm:text-base">
-                            </div>
-                        </div>
-                        <div>
-                            <label for="nameOnCard" class="block text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name on Card</label>
-                            <input type="text" id="nameOnCard" placeholder="John Doe" class="w-full px-3 sm:px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white text-sm sm:text-base">
-                        </div>
-                        <div class="border-t border-gray-200 dark:border-gray-700 pt-3 sm:pt-4">
-                            <div class="flex justify-between mb-1 sm:mb-2">
-                                <span class="text-xs sm:text-sm text-gray-600 dark:text-gray-300">Subtotal:</span>
-                                <span id="checkoutSubtotal" class="font-medium text-xs sm:text-sm text-gray-800 dark:text-white">$0.00</span>
-                            </div>
-                            <div class="flex justify-between mb-1 sm:mb-2">
-                                <span class="text-xs sm:text-sm text-gray-600 dark:text-gray-300">Shipping:</span>
-                                <span class="font-medium text-xs sm:text-sm text-gray-800 dark:text-white">$5.99</span>
-                            </div>
-                            <div class="flex justify-between text-base sm:text-lg font-bold">
-                                <span class="text-gray-800 dark:text-white">Total:</span>
-                                <span id="checkoutTotal" class="text-blue-600 dark:text-blue-400">$0.00</span>
-                            </div>
-                        </div>
-                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 sm:py-3 px-4 rounded-lg transition-all mt-3 sm:mt-4 text-sm sm:text-base">
-                            Pay Now
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
+    <aside class="cart" aria-label="Shopping cart">
+        <h2>Your Cart</h2>
+        <div id="cartItems"></div>
+        <div class="cart-total" id="cartTotal">Total: ₹0.00</div>
+        <button id="clearCartBtn" class="clear-btn">Clear Cart</button>
+        <button id="checkoutBtn" class="checkout-btn">Checkout</button>
+    </aside>
 
-        <!-- Payment Success Modal -->
-        <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-2 sm:p-4 opacity-0 pointer-events-none transition-opacity duration-300">
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-full max-w-md transform scale-95 transition-transform duration-300 text-center p-6 sm:p-8">
-                <div class="text-green-500 text-5xl sm:text-6xl mb-3 sm:mb-4">
-                    <i class="fas fa-check-circle"></i>
-                </div>
-                <h3 class="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white mb-1 sm:mb-2">Payment Successful!</h3>
-                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 sm:mb-6">Thank you for your purchase. Your order has been placed successfully.</p>
-                <button id="closeSuccessBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 sm:px-6 rounded-lg transition-all text-sm sm:text-base">
-                    Continue Shopping
-                </button>
-            </div>
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="paymentTitle" tabindex="-1">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal" role="button" aria-label="Close Payment Form">&times;</span>
+            <h2 id="paymentTitle">Payment Details</h2>
+            <form id="paymentForm">
+                <label for="nameOnCard">Name on Card</label>
+                <input type="text" id="nameOnCard" name="nameOnCard" required autocomplete="cc-name" />
+
+                <label for="cardNumber">Card Number</label>
+                <input type="text" id="cardNumber" name="cardNumber" pattern="\d{16}" maxlength="16"
+                    placeholder="1234567812345678" required autocomplete="cc-number" inputmode="numeric" />
+
+                <label for="expiryDate">Expiry Date (MM/YY)</label>
+                <input type="text" id="expiryDate" name="expiryDate" pattern="(0[1-9]|1[0-2])\/\d{2}"
+                    placeholder="MM/YY" required autocomplete="cc-exp" />
+
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" pattern="\d{3}" maxlength="3" required autocomplete="cc-csc"
+                    inputmode="numeric" />
+
+                <button type="submit">Pay ₹<span id="payAmount">0.00</span></button>
+            </form>
+            <div id="paymentMessage" role="alert"></div>
         </div>
     </div>
 
     <script>
-        // Sample book data with reliable placeholder images
+        // 50 sample books data
         const books = [
-            {
-                id: 1,
-                title: "The Silent Patient",
-                author: "Alex Michaelides",
-                price: 15.99,
-                image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-                description: "Alicia Berenson's life is seemingly perfect. A famous painter married to an in-demand fashion photographer, she lives in a grand house overlooking a park in one of London's most desirable areas. One evening, her husband Gabriel returns home late, and Alicia shoots him five times in the face and then never speaks another word.",
-                rating: "4.5 (12,345 reviews)",
-                pages: 336,
-                publisher: "Celadon Books",
-                language: "English",
-                isbn: "978-1250301697"
-            },
-            {
-                id: 2,
-                title: "Where the Crawdads Sing",
-                author: "Delia Owens",
-                price: 12.99,
-                image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-                description: "For years, rumors of the 'Marsh Girl' have haunted Barkley Cove, a quiet town on the North Carolina coast. So in late 1969, when handsome Chase Andrews is found dead, the locals immediately suspect Kya Clark, the so-called Marsh Girl. But Kya is not what they say. Sensitive and intelligent, she has survived for years alone in the marsh that she calls home, finding friends in the gulls and lessons in the sand.",
-                rating: "4.8 (98,765 reviews)",
-                pages: 384,
-                publisher: "G.P. Putnam's Sons",
-                language: "English",
-                isbn: "978-0735219090"
-            },
-            {
-                id: 3,
-                title: "Educated",
-                author: "Tara Westover",
-                price: 14.99,
-                image: "https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-                description: "Tara Westover was 17 the first time she set foot in a classroom. Born to survivalists in the mountains of Idaho, she prepared for the end of the world by stockpiling home-canned peaches and sleeping with a 'head-for-the-hills bag'. In the summer she stewed herbs for her mother, a midwife and healer, and in the winter she salvaged metal in her father's junkyard.",
-                rating: "4.7 (67,890 reviews)",
-                pages: 352,
-                publisher: "Random House",
-                language: "English",
-                isbn: "978-0399590504"
-            },
-            {
-                id: 4,
-                title: "Atomic Habits",
-                author: "James Clear",
-                price: 11.99,
-                image: "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-                description: "Atomic Habits is a groundbreaking book that reveals how tiny changes can lead to remarkable results. James Clear explains how to build good habits and break bad ones, providing a framework for improving every day.",
-                rating: "4.8 (45,678 reviews)",
-                pages: 320,
-                publisher: "Avery",
-                language: "English",
-                isbn: "978-0735211292"
-            }
+            { id: 1, title: 'To Kill a Mockingbird', author: 'Harper Lee', price: 399, img: 'https://covers.openlibrary.org/b/id/8226191-L.jpg' },
+            { id: 2, title: '1984', author: 'George Orwell', price: 299, img: 'https://covers.openlibrary.org/b/id/7222246-L.jpg' },
+            { id: 3, title: 'Pride and Prejudice', author: 'Jane Austen', price: 349, img: 'https://covers.openlibrary.org/b/id/8091016-L.jpg' },
+            { id: 4, title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', price: 279, img: 'https://covers.openlibrary.org/b/id/7352161-L.jpg' },
+            { id: 5, title: 'The Catcher in the Rye', author: 'J.D. Salinger', price: 319, img: 'https://covers.openlibrary.org/b/id/8231856-L.jpg' },
+            { id: 6, title: 'The Hobbit', author: 'J.R.R. Tolkien', price: 459, img: 'https://covers.openlibrary.org/b/id/6979861-L.jpg' },
+            { id: 7, title: 'Fahrenheit 451', author: 'Ray Bradbury', price: 249, img: 'https://covers.openlibrary.org/b/id/8104159-L.jpg' },
+            { id: 8, title: 'Moby-Dick', author: 'Herman Melville', price: 389, img: 'https://covers.openlibrary.org/b/id/8231991-L.jpg' },
+            { id: 9, title: 'War and Peace', author: 'Leo Tolstoy', price: 499, img: 'https://covers.openlibrary.org/b/id/8318320-L.jpg' },
+            { id: 10, title: 'Crime and Punishment', author: 'Fyodor Dostoevsky', price: 459, img: 'https://covers.openlibrary.org/b/id/8102232-L.jpg' },
+            { id: 11, title: 'The Odyssey', author: 'Homer', price: 399, img: 'https://covers.openlibrary.org/b/id/8232003-L.jpg' },
+            { id: 12, title: 'Brave New World', author: 'Aldous Huxley', price: 349, img: 'https://covers.openlibrary.org/b/id/8306660-L.jpg' },
+            { id: 13, title: 'The Divine Comedy', author: 'Dante Alighieri', price: 479, img: 'https://covers.openlibrary.org/b/id/8033984-L.jpg' },
+            { id: 14, title: 'Les Misérables', author: 'Victor Hugo', price: 549, img: 'https://covers.openlibrary.org/b/id/8101207-L.jpg' },
+            { id: 15, title: 'The Brothers Karamazov', author: 'Fyodor Dostoevsky', price: 479, img: 'https://covers.openlibrary.org/b/id/8223693-L.jpg' },
+            { id: 16, title: 'Anna Karenina', author: 'Leo Tolstoy', price: 459, img: 'https://covers.openlibrary.org/b/id/8232025-L.jpg' },
+            { id: 17, title: 'The Adventures of Huckleberry Finn', author: 'Mark Twain', price: 329, img: 'https://covers.openlibrary.org/b/id/8232034-L.jpg' },
+            { id: 18, title: 'Dracula', author: 'Bram Stoker', price: 299, img: 'https://covers.openlibrary.org/b/id/8232043-L.jpg' },
+            { id: 19, title: 'The Picture of Dorian Gray', author: 'Oscar Wilde', price: 279, img: 'https://covers.openlibrary.org/b/id/8232050-L.jpg' },
+            { id: 20, title: 'Frankenstein', author: 'Mary Shelley', price: 259, img: 'https://covers.openlibrary.org/b/id/8232057-L.jpg' },
+            { id: 21, title: 'The Count of Monte Cristo', author: 'Alexandre Dumas', price: 399, img: 'https://covers.openlibrary.org/b/id/8232064-L.jpg' },
+            { id: 22, title: 'The Grapes of Wrath', author: 'John Steinbeck', price: 349, img: 'https://covers.openlibrary.org/b/id/8232070-L.jpg' },
+            { id: 23, title: 'One Hundred Years of Solitude', author: 'Gabriel García Márquez', price: 399, img: 'https://covers.openlibrary.org/b/id/8232076-L.jpg' },
+            { id: 24, title: 'Lolita', author: 'Vladimir Nabokov', price: 319, img: 'https://covers.openlibrary.org/b/id/8232083-L.jpg' },
+            { id: 25, title: 'The Stranger', author: 'Albert Camus', price: 289, img: 'https://covers.openlibrary.org/b/id/8232090-L.jpg' },
+            { id: 26, title: 'Heart of Darkness', author: 'Joseph Conrad', price: 279, img: 'https://covers.openlibrary.org/b/id/8232096-L.jpg' },
+            { id: 27, title: 'The Kite Runner', author: 'Khaled Hosseini', price: 369, img: 'https://covers.openlibrary.org/b/id/8232103-L.jpg' },
+            { id: 28, title: 'Life of Pi', author: 'Yann Martel', price: 349, img: 'https://covers.openlibrary.org/b/id/8232109-L.jpg' },
+            { id: 29, title: 'The Alchemist', author: 'Paulo Coelho', price: 299, img: 'https://covers.openlibrary.org/b/id/8232115-L.jpg' },
+            { id: 30, title: 'The Da Vinci Code', author: 'Dan Brown', price: 399, img: 'https://covers.openlibrary.org/b/id/8232121-L.jpg' },
+            { id: 31, title: 'The Hunger Games', author: 'Suzanne Collins', price: 359, img: 'https://covers.openlibrary.org/b/id/8232128-L.jpg' },
+            { id: 32, title: 'Harry Potter and the Sorcerer\'s Stone', author: 'J.K. Rowling', price: 499, img: 'https://covers.openlibrary.org/b/id/7984916-L.jpg' },
+            { id: 33, title: 'Twilight', author: 'Stephenie Meyer', price: 299, img: 'https://covers.openlibrary.org/b/id/8232134-L.jpg' },
+            { id: 34, title: 'The Fault in Our Stars', author: 'John Green', price: 329, img: 'https://covers.openlibrary.org/b/id/8232140-L.jpg' },
+            { id: 35, title: 'Gone Girl', author: 'Gillian Flynn', price: 379, img: 'https://covers.openlibrary.org/b/id/8232147-L.jpg' },
+            { id: 36, title: 'The Girl on the Train', author: 'Paula Hawkins', price: 349, img: 'https://covers.openlibrary.org/b/id/8232153-L.jpg' },
+            { id: 37, title: 'The Book Thief', author: 'Markus Zusak', price: 399, img: 'https://covers.openlibrary.org/b/id/8232159-L.jpg' },
+            { id: 38, title: 'Dune', author: 'Frank Herbert', price: 459, img: 'https://covers.openlibrary.org/b/id/8232165-L.jpg' },
+            { id: 39, title: 'Ender\'s Game', author: 'Orson Scott Card', price: 359, img: 'https://covers.openlibrary.org/b/id/8232170-L.jpg' },
+            { id: 40, title: 'Ready Player One', author: 'Ernest Cline', price: 379, img: 'https://covers.openlibrary.org/b/id/8232176-L.jpg' },
+            { id: 41, title: 'The Shining', author: 'Stephen King', price: 399, img: 'https://covers.openlibrary.org/b/id/8232182-L.jpg' },
+            { id: 42, title: 'It', author: 'Stephen King', price: 459, img: 'https://covers.openlibrary.org/b/id/8232188-L.jpg' },
+            { id: 43, title: 'Misery', author: 'Stephen King', price: 349, img: 'https://covers.openlibrary.org/b/id/8232194-L.jpg' },
+            { id: 44, title: 'The Road', author: 'Cormac McCarthy', price: 399, img: 'https://covers.openlibrary.org/b/id/8232200-L.jpg' },
+            { id: 45, title: 'The Color Purple', author: 'Alice Walker', price: 329, img: 'https://covers.openlibrary.org/b/id/8232206-L.jpg' },
+            { id: 46, title: 'Beloved', author: 'Toni Morrison', price: 359, img: 'https://covers.openlibrary.org/b/id/8232212-L.jpg' },
+            { id: 47, title: 'Catch-22', author: 'Joseph Heller', price: 339, img: 'https://covers.openlibrary.org/b/id/8232218-L.jpg' },
+            { id: 48, title: 'Slaughterhouse-Five', author: 'Kurt Vonnegut', price: 319, img: 'https://covers.openlibrary.org/b/id/8232224-L.jpg' },
+            { id: 49, title: 'The Sun Also Rises', author: 'Ernest Hemingway', price: 299, img: 'https://covers.openlibrary.org/b/id/8232230-L.jpg' },
+            { id: 50, title: 'A Farewell to Arms', author: 'Ernest Hemingway', price: 289, img: 'https://covers.openlibrary.org/b/id/8232236-L.jpg' },
         ];
 
-        // DOM Elements
-        const bookGrid = document.getElementById('bookGrid');
-        const cartBtn = document.getElementById('cartBtn');
-        const closeCartBtn = document.getElementById('closeCartBtn');
-        const cartSidebar = document.getElementById('cartSidebar');
-        const cartItems = document.getElementById('cartItems');
-        const cartCount = document.getElementById('cartCount');
-        const cartSubtotalEl = document.getElementById('cartSubtotal');
+        const booksContainer = document.getElementById('booksContainer');
+        const searchInput = document.getElementById('searchInput');
+        const cartItemsDiv = document.getElementById('cartItems');
+        const cartTotalDiv = document.getElementById('cartTotal');
+        const clearCartBtn = document.getElementById('clearCartBtn');
         const checkoutBtn = document.getElementById('checkoutBtn');
-        const closeCheckoutBtn = document.getElementById('closeCheckoutBtn');
-        const checkoutModal = document.getElementById('checkoutModal');
-        const checkoutForm = document.getElementById('checkoutForm');
-        const checkoutSubtotal = document.getElementById('checkoutSubtotal');
-        const checkoutTotal = document.getElementById('checkoutTotal');
-        const successModal = document.getElementById('successModal');
-        const closeSuccessBtn = document.getElementById('closeSuccessBtn');
-        const bookModal = document.getElementById('bookModal');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-        const modalAddToCartBtn = document.getElementById('modalAddToCartBtn');
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-
-        // State
-        let cart = [];
-        let currentBookId = null;
-
-        // Initialize the app
-        function init() {
-            renderBooks();
-            setupEventListeners();
-            loadThemePreference();
+        const toggleDarkBtn = document.getElementById('toggleDark');
+        const paymentModal = document.getElementById('paymentModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const paymentForm = document.getElementById('paymentForm');
+        const payAmountSpan = document.getElementById('payAmount');
+        const paymentMessageDiv = document.getElementById('paymentMessage');
+        const cartButton = document.getElementById('cartButton');
+        const cartElement = document.getElementById('cart'); // Renamed variable
+        let cart = {}; // This will hold the cart items
+        // Initialize dark mode from localStorage if available
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark');
+            toggleDarkBtn.textContent = '☀️ Light Mode';
         }
+        // Function to toggle cart visibility
+        cartButton.addEventListener('click', () => {
+            cartElement.style.display = cartElement.style.display === 'block' ? 'none' : 'block';
+        });
 
-        // Render books to the grid
-        function renderBooks() {
-            bookGrid.innerHTML = '';
-            books.forEach(book => {
-                const bookCard = document.createElement('div');
-                bookCard.className = 'book-card bg-white dark:bg-gray-800 rounded-lg shadow-md p-3 sm:p-4 transition-all animate-fadeIn';
-                bookCard.innerHTML = `
-                    <img src="${book.image}" alt="${book.title}" class="w-full h-40 sm:h-48 object-cover rounded-md mb-3 sm:mb-4">
-                    <h4 class="text-base sm:text-lg font-semibold text-gray-800 dark:text-white">${book.title}</h4>
-                    <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300">${book.author}</p>
-                    <p class="text-lg sm:text-xl font-bold text-gray-800 dark:text-white">$${book.price.toFixed(2)}</p>
-                    <button class="mt-1 sm:mt-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 sm:py-2 px-3 sm:px-4 rounded-lg text-xs sm:text-sm" data-book-id="${book.id}">Read More</button>
-                `;
-                bookGrid.appendChild(bookCard);
-            });
-        }
-
-        // Set up event listeners
-        function setupEventListeners() {
-            // Book grid click events (delegated)
-            bookGrid.addEventListener('click', (e) => {
-                if (e.target.tagName === 'BUTTON' && e.target.hasAttribute('data-book-id')) {
-                    const bookId = parseInt(e.target.getAttribute('data-book-id'));
-                    openBookModal(bookId);
-                }
-            });
-
-            // Cart buttons
-            cartBtn.addEventListener('click', openCart);
-            closeCartBtn.addEventListener('click', closeCart);
-
-            // Modal buttons
-            closeModalBtn.addEventListener('click', closeBookModal);
-            modalAddToCartBtn.addEventListener('click', addToCartFromModal);
-
-            // Checkout buttons
-            checkoutBtn.addEventListener('click', openCheckoutModal);
-            closeCheckoutBtn.addEventListener('click', closeCheckoutModal);
-            checkoutForm.addEventListener('submit', handleCheckoutSubmit);
-
-            // Success modal
-            closeSuccessBtn.addEventListener('click', closeSuccessModal);
-
-            // Theme toggle
-            themeToggle.addEventListener('click', toggleTheme);
-
-            // Close modals when clicking outside
-            document.addEventListener('click', (e) => {
-                if (e.target === bookModal) closeBookModal();
-                if (e.target === checkoutModal) closeCheckoutModal();
-                if (e.target === successModal) closeSuccessModal();
-                if (e.target === cartSidebar && window.innerWidth < 640) closeCart();
-            });
-        }
-
-        // Book modal functions
-        function openBookModal(bookId) {
-            currentBookId = bookId;
-            const book = books.find(b => b.id === bookId);
-            
-            document.getElementById('modalBookTitle').textContent = book.title;
-            document.getElementById('modalBookAuthor').textContent = book.author;
-            document.getElementById('modalBookDescription').textContent = book.description;
-            document.getElementById('modalBookImage').src = book.image;
-            document.getElementById('modalBookPrice').textContent = `$${book.price.toFixed(2)}`;
-            document.getElementById('modalBookRating').textContent = book.rating;
-            document.getElementById('modalBookPages').textContent = book.pages;
-            document.getElementById('modalBookPublisher').textContent = book.publisher;
-            document.getElementById('modalBookLanguage').textContent = book.language;
-            document.getElementById('modalBookISBN').textContent = book.isbn;
-
-            bookModal.classList.remove('opacity-0', 'pointer-events-none');
-            bookModal.classList.add('opacity-100');
-        }
-
-        function closeBookModal() {
-            bookModal.classList.add('opacity-0', 'pointer-events-none');
-            currentBookId = null;
-        }
-
-        // Cart functions
-        function openCart() {
-            cartSidebar.classList.remove('translate-x-full');
-        }
-
-        function closeCart() {
-            cartSidebar.classList.add('translate-x-full');
-        }
-
-        function addToCartFromModal() {
-            if (!currentBookId) return;
-            
-            const book = books.find(b => b.id === currentBookId);
-            cart.push(book);
-            updateCart();
-            closeBookModal();
-            
-            // Show cart on mobile after adding
-            if (window.innerWidth < 640) {
-                openCart();
-            }
-        }
-
-        function updateCart() {
-            cartItems.innerHTML = '';
-            
-            if (cart.length === 0) {
-                document.getElementById('emptyCartMessage').style.display = 'block';
-            } else {
-                document.getElementById('emptyCartMessage').style.display = 'none';
-                
-                cart.forEach((item, index) => {
-                    const cartItem = document.createElement('div');
-                    cartItem.className = 'flex justify-between items-center mb-3 sm:mb-4';
-                    cartItem.innerHTML = `
-                        <div>
-                            <h4 class="text-sm sm:text-base text-gray-800 dark:text-white">${item.title}</h4>
-                            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300">$${item.price.toFixed(2)}</p>
-                        </div>
-                        <button class="text-red-500" data-cart-index="${index}"><i class="fas fa-trash text-sm sm:text-base"></i></button>
-                    `;
-                    cartItems.appendChild(cartItem);
-                });
-            }
-            
-            // Calculate subtotal
-            const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
-            cartSubtotalEl.textContent = `$${subtotal.toFixed(2)}`;
-            cartCount.textContent = cart.length;
-            
-            // Update checkout totals if checkout modal is open
-            if (!checkoutModal.classList.contains('opacity-0')) {
-                checkoutSubtotal.textContent = `$${subtotal.toFixed(2)}`;
-                checkoutTotal.textContent = `$${(subtotal + 5.99).toFixed(2)}`;
-            }
-            
-            // Add event listeners to remove buttons
-            document.querySelectorAll('[data-cart-index]').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const index = parseInt(e.currentTarget.getAttribute('data-cart-index'));
-                    cart.splice(index, 1);
-                    updateCart();
-                });
-            });
-        }
-
-        // Checkout functions
-        function openCheckoutModal() {
-            const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
-            checkoutSubtotal.textContent = `$${subtotal.toFixed(2)}`;
-            checkoutTotal.textContent = `$${(subtotal + 5.99).toFixed(2)}`;
-            
-            checkoutModal.classList.remove('opacity-0', 'pointer-events-none');
-            checkoutModal.classList.add('opacity-100');
-        }
-
-        function closeCheckoutModal() {
-            checkoutModal.classList.add('opacity-0', 'pointer-events-none');
-        }
-
-        function handleCheckoutSubmit(e) {
-            e.preventDefault();
-            
-            // Simple validation
-            const cardNumber = document.getElementById('cardNumber').value;
-            const expiryDate = document.getElementById('expiryDate').value;
-            const cvv = document.getElementById('cvv').value;
-            const nameOnCard = document.getElementById('nameOnCard').value;
-            
-            if (!cardNumber || !expiryDate || !cvv || !nameOnCard) {
-                alert('Please fill in all payment details');
+        // Render books
+        function renderBooks(bookList) {
+            booksContainer.innerHTML = '';
+            if (bookList.length === 0) {
+                booksContainer.innerHTML = '<p style="font-size:1.2rem;">No books found.</p>';
                 return;
             }
-            
-            closeCheckoutModal();
-            openSuccessModal();
-            
-            // Clear cart
-            cart = [];
-            updateCart();
-            closeCart();
-            
-            // Reset form
-            checkoutForm.reset();
+            bookList.forEach(book => {
+                const bookDiv = document.createElement('div');
+                bookDiv.classList.add('book');
+                bookDiv.innerHTML = `
+            <img src="${book.img}" alt="Cover of ${book.title}" />
+            <div class="book-info">
+                <div class="title" title="${book.title}">${book.title}</div>
+                <div class="author" title="Author: ${book.author}">by ${book.author}</div>
+                <div class="price">₹${book.price.toFixed(2)}</div>
+                <div class="buttons">
+                    <button class="add-btn" aria-label="Add ${book.title} to cart" data-id="${book.id}">Add to Cart</button>
+                    <button class="buy-btn" aria-label="Buy ${book.title} now" data-id="${book.id}">Buy Now</button>
+                </div>
+            </div>
+        `;
+                booksContainer.appendChild(bookDiv);
+            });
+
+            // Attach event listeners for buttons
+            attachButtonListeners();
         }
 
-        // Success modal functions
-        function openSuccessModal() {
-            successModal.classList.remove('opacity-0', 'pointer-events-none');
-            successModal.classList.add('opacity-100');
+        // Attach event listeners for add and buy buttons
+        function attachButtonListeners() {
+            document.querySelectorAll('.add-btn').forEach(btn => {
+                btn.addEventListener('click', () => addToCart(parseInt(btn.dataset.id)));
+            });
+
+            document.querySelectorAll('.buy-btn').forEach(btn => {
+                btn.addEventListener('click', () => buyNow(parseInt(btn.dataset.id)));
+            });
         }
 
-        function closeSuccessModal() {
-            successModal.classList.add('opacity-0', 'pointer-events-none');
+        // Add book to cart
+        function addToCart(bookId) {
+            const book = books.find(b => b.id === bookId);
+            if (cart[bookId]) {
+                cart[bookId].qty++;
+            } else {
+                cart[bookId] = { ...book, qty: 1 };
+            }
+            saveCart();
+            renderCart();
         }
 
-        // Theme functions
-        function toggleTheme() {
-            document.body.classList.toggle('dark');
-            themeIcon.classList.toggle('fa-moon');
-            themeIcon.classList.toggle('fa-sun');
-            
-            // Save preference to localStorage
-            const isDark = document.body.classList.contains('dark');
-            localStorage.setItem('darkMode', isDark);
+        // Remove book from cart
+        function removeFromCart(bookId) {
+            delete cart[bookId];
+            saveCart();
+            renderCart();
         }
 
-        function loadThemePreference() {
-            const darkMode = localStorage.getItem('darkMode') === 'true';
-            if (darkMode) {
-                document.body.classList.add('dark');
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
+        // Clear entire cart
+        function clearCart() {
+            cart = {};
+            saveCart();
+            renderCart();
+        }
+
+        // Render cart contents
+        function renderCart() {
+            cartItemsDiv.innerHTML = '';
+            const cartEntries = Object.values(cart);
+            if (cartEntries.length === 0) {
+                cartItemsDiv.innerHTML = '<p>Your cart is empty.</p>';
+                cartTotalDiv.textContent = 'Total: ₹0.00';
+                checkoutBtn.disabled = true;
+                clearCartBtn.disabled = true;
+                return;
+            }
+
+            checkoutBtn.disabled = false;
+            clearCartBtn.disabled = false;
+
+            let total = 0;
+            cartEntries.forEach(item => {
+                total += item.price * item.qty;
+                const cartItemDiv = document.createElement('div');
+                cartItemDiv.classList.add('cart-item');
+                cartItemDiv.innerHTML = `
+            <div class="title" title="${item.title}">${item.title}</div>
+            <div class="qty">x${item.qty}</div>
+            <div>₹${(item.price * item.qty).toFixed(2)}</div>
+            <button class="remove-btn" aria-label="Remove ${item.title} from cart" data-id="${item.id}">&times;</button>
+        `;
+                cartItemsDiv.appendChild(cartItemDiv);
+            });
+
+            // Attach event listeners for remove buttons
+            attachRemoveButtonListeners();
+
+            cartTotalDiv.textContent = `Total: ₹${total.toFixed(2)}`;
+            payAmountSpan.textContent = total.toFixed(2);
+        }
+
+        // Attach event listeners for remove buttons
+        function attachRemoveButtonListeners() {
+            document.querySelectorAll('.remove-btn').forEach(btn => {
+                btn.addEventListener('click', () => removeFromCart(parseInt(btn.dataset.id)));
+            });
+        }
+
+        // Save cart to localStorage
+        function saveCart() {
+            localStorage.setItem('bookstoreCart', JSON.stringify(cart));
+        }
+
+        // Load cart from localStorage
+        function loadCart() {
+            const storedCart = localStorage.getItem('bookstoreCart');
+            if (storedCart) {
+                cart = JSON.parse(storedCart);
             }
         }
 
-        // Initialize the app when DOM is loaded
-        document.addEventListener('DOMContentLoaded', init);
+        // Search books by title or author
+        function searchBooks(query) {
+            query = query.trim().toLowerCase();
+            if (!query) return books;
+            return books.filter(
+                book => book.title.toLowerCase().includes(query) || book.author.toLowerCase().includes(query)
+            );
+        }
+
+        // Buy Now flow - opens modal with just this book
+        function buyNow(bookId) {
+            cart = {}; // Clear cart
+            const book = books.find(b => b.id === bookId);
+            cart[bookId] = { ...book, qty: 1 };
+            renderCart();
+            openPaymentModal();
+        }
+
+        // Open payment modal
+        function openPaymentModal() {
+            paymentMessageDiv.textContent = '';
+            paymentModal.style.display = 'block';
+            document.getElementById('nameOnCard').focus(); // Focus first input for accessibility
+        }
+
+        // Close payment modal
+        function closePaymentModal() {
+            paymentModal.style.display = 'none';
+        }
+
+        // Handle payment form submission
+        paymentForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            paymentMessageDiv.style.color = 'green';
+            paymentMessageDiv.textContent = 'Processing payment...';
+
+            // Simulate payment processing delay
+            setTimeout(() => {
+                paymentMessageDiv.textContent = 'Payment Successful! Thank you for your purchase.';
+                clearCart();
+                closePaymentModal();
+            }, 1500);
+        });
+
+        // Toggle dark mode
+        toggleDarkBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            const isDark = document.body.classList.contains('dark');
+            toggleDarkBtn.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+            localStorage.setItem('darkMode', isDark);
+        });
+
+        // Close modal button
+        closeModalBtn.addEventListener('click', closePaymentModal);
+
+        // Close modal when clicking outside modal content
+        window.addEventListener('click', e => {
+            if (e.target === paymentModal) {
+                closePaymentModal();
+            }
+        });
+
+        // Clear cart button
+        clearCartBtn.addEventListener('click', () => {
+            if (confirm('Are you sure you want to clear the cart?')) {
+                clearCart();
+            }
+        });
+
+        // Checkout button opens payment modal
+        checkoutBtn.addEventListener('click', () => {
+            if (Object.keys(cart).length === 0) {
+                alert('Your cart is empty.');
+                return;
+            }
+            openPaymentModal();
+        });
+
+        // Search input event
+        searchInput.addEventListener('input', () => {
+            const filteredBooks = searchBooks(searchInput.value);
+            renderBooks(filteredBooks);
+        });
+
+        // On page load
+        loadCart();
+        renderCart();
+        renderBooks(books);
     </script>
+
 </body>
+
 </html>
