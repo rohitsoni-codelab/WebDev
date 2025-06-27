@@ -310,3 +310,194 @@
                 price: 13.99,
                 image: "https://m.media-amazon.com/images/I/81g1g1g1g1L._AC_UF1000,1000_QL80_.jpg",
                 description: "The Vanishing Half is a multi-generational narrative that explores the lives of twin sisters who choose to live in two very different worlds,
+
+
+
+
+
+
+                       // Initialize dark mode from localStorage if available
+if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark');
+    toggleDarkBtn.textContent = '☀️ Light Mode';
+}
+// Function to toggle cart visibility
+cartButton.addEventListener('click', () => {
+    cartElement.style.display = cartElement.style.display === 'block' ? 'none' : 'block';
+});
+
+// Render books based on the current page
+function renderBooks() {
+    const start = currentPage * itemsPerPage;
+    const end = start + itemsPerPage;
+    const bookList = books.slice(start, end);
+    booksContainer.innerHTML = ''; // Clear previous books
+    bookList.forEach(book => {
+        const bookDiv = document.createElement('div');
+        bookDiv.classList.add('book');
+        bookDiv.innerHTML = `
+            <img src="${book.img}" alt="Cover of ${book.title}" />
+            <div class="book-info">
+                <div class="title" title="${book.title}">${book.title}</div>
+                <div class="author" title="Author: ${book.author}">by ${book.author}</div>
+                <div class="price">₹${book.price.toFixed(2)}</div>
+                <div class="buttons">
+                    <button class="add-btn" aria-label="Add ${book.title} to cart" data-id="${book.id}">Add to Cart</button>
+                    <button class="buy-btn" aria-label="Buy ${book.title} now" data-id="${book.id}">Buy Now</button>
+                </div>
+            </div>
+        `;
+        booksContainer.appendChild(bookDiv);
+    });
+
+      // Hide the "See More" button if there are no more books to show
+    seeMoreBtn.style.display = end >= books.length ? 'none' : 'inline-block';
+}
+// Event listener for the "See More" button
+seeMoreBtn.addEventListener('click', () => {
+    currentPage++;
+    renderBooks();
+});
+// Initial render
+renderBooks();
+
+
+
+
+
+/* Basic Reset */
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+header {
+    background-color: #0066cc;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.search-bar {
+    padding: 10px 20px;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+}
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.book {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    width: 170px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.book img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+.buttons {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+}
+}
+.see-more-btn:hover {
+    background-color: #0056b3;
+}
+/* Cart styles */
+.cart {
+    position: fixed;
+    top: 80px;
+    right: 0;
+    width: 320px;
+    max-height: calc(100vh - 90px);
+    background-color: white;
+    box-shadow: -3px 0 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    overflow-y: auto;
+    border-radius: 10px 0 0 10px;
+    z-index: 999;
+    transition: background-color 0.3s;
+    display: none; /* Initially hidden */
+}
+.cart h2 {
+    margin-top: 0;
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0066cc; /* Highlighted color for the title */
+}
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    font-size: 0.95rem;
+}
+.cart-item > div {
+    flex: 1;
+}
+.cart-item .title {
+    font-weight: 600;
+}
+.cart-item .qty {
+    margin: 0 10px;
+    min-width: 30px; /* Increased minimum width for better visibility */
+    text-align: center;
+}
+.remove-btn {
+    background: none;
+    border: none;
+    color: #dc3545;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 1;
+    padding: 0 5px;
+    transition: color 0.3s; /* Smooth color transition */
+}
+.remove-btn:hover {
+    color: #a71d2a;
+}
+.cart-total {
+    font-weight: 700;
+    font-size: 1.2rem; /* Increased font size for better visibility */
+    text-align: right;
+    margin-top: 20px; /* Increased margin for better spacing */
+    color: #0066cc; /* Highlighted color for total */
+}
+.clear-btn {
+    background-color: #dc3545;
+    color: white;
+    width: 100%;
+    padding: 10px 0; /* Increased padding for better touch targets */
+    margin-top: 15px; /* Increased margin for better spacing */
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+.clear-btn:hover {
+    background-color: #a71d2a;
+}
