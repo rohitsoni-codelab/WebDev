@@ -143,6 +143,75 @@ body.dark #cartButton:hover {
 }
 
 
+/* on the cart statements */
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f3f4f6;
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+body.dark .cart-item {
+  background-color: #2c2c2c;
+  color: #f1f1f1;
+}
+
+.cart-item .title {
+  font-weight: 600;
+  flex: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 10px;
+}
+
+.cart-item .qty {
+  font-size: 0.9rem;
+  color: #555;
+  flex: 0.5;
+  text-align: center;
+}
+
+body.dark .cart-item .qty {
+  color: #bbb;
+}
+
+.cart-item div:last-child {
+  font-weight: 500;
+  flex: 1;
+  text-align: right;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #e11d48; /* red-600 */
+  font-size: 1.2rem;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.remove-btn:hover {
+  color: #be123c; /* red-700 */
+}
+
+body.dark .remove-btn {
+  color: #f87171;
+}
+
+
+
+
+
+
+
+
 
 
 
