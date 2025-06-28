@@ -11,31 +11,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="relative">
 
-
-
-    <!-- <header class="flex items-center justify-between px-6 py-4 bg-white shadow sticky top-0 z-50">
-    <h1 class="text-2xl font-bold text-blue-700">Simple Online Bookstore</h1>
-    <div class="flex items-center space-x-4">
-      <button id="toggleDark" aria-label="Toggle Dark Mode"
-        class="bg-gray-200 hover:bg-gray-300 text-gray-800 rounded px-3 py-1">🌙 Dark Mode</button>
-      <button id="cartButton" aria-label="View Cart"
-        class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded">🛒 Cart</button>
-    </div>
-  </header> -->
-
-
-
-    <header class="flex items-center justify-between px-6 py-4 bg-white shadow sticky top-0 z-50">
+    <header class="flex items-center justify-between px-6 py-4 bg-white shadow sticky top-0 z-50 ">
         <div class="flex-shrink-0 flex items-center">
             <a href="#" class="text-xl text-blue-600 font-bold text-gray-800"><img class="h-14 w-auto object-contain"
                     src="https://epustakalay.com/wp-content/uploads/2018/12/cropped-logohindi-1.jpg" alt=""></a>
         </div>
-
-
-
-
         <div class="header-buttons">
             <div class="search-bar">
                 <div class="search-wrapper">
@@ -44,7 +26,6 @@
                         aria-label="Search books" />
                 </div>
             </div>
-
             <button id="toggleDark" aria-label="Toggle Dark Mode"
                 class="bg-gray-200 hover:bg-gray-300 text-gray-800 rounded px-3 py-1">
                 🌙
@@ -56,22 +37,20 @@
                 <button id="clearCartBtn" class="clear-btn">Clear Cart</button>
                 <button id="checkoutBtn" class="checkout-btn">Checkout</button>
             </aside>
-
             <button id="cartButton" aria-label="View Cart">
                 <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="Cart Icon" />
                 Cart
             </button>
-
         </div>
-
-
     </header>
-
-
 
     <main class="container" id="booksContainer">
         <!-- Books will be shown here dynamically -->
     </main>
+
+
+
+
 
     <aside class="cart" aria-label="Shopping cart">
         <h2>Your Cart</h2>
@@ -107,6 +86,63 @@
             <div id="paymentMessage" role="alert"></div>
         </div>
     </div>
+
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="grid">
+            <div>
+                <a href="#" class="logo">
+                    <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                        <rect x="3" y="1" width="7" height="12" />
+                        <rect x="3" y="17" width="7" height="6" />
+                        <rect x="14" y="1" width="7" height="6" />
+                        <rect x="14" y="11" width="7" height="12" />
+                    </svg>
+                    Company
+                </a>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                <p class="mt-4">Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                    explicabo.</p>
+            </div>
+
+            <div>
+                <h3>Contacts</h3>
+                <p><strong>Phone:</strong> <a href="tel:850-123-5021">850-123-5021</a></p>
+                <p><strong>Email:</strong> <a href="mailto:info@lorem.mail">info@lorem.mail</a></p>
+                <p><strong>Address:</strong> <a href="https://www.google.com/maps" target="_blank">312 Lovely Street,
+                        NY</a></p>
+            </div>
+
+            <div>
+                <h3>Social</h3>
+                <div class="socials">
+                    <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24">
+                            <path d="M24,4.6c-0.9,0.4-1.8,0.7-2.8..." />
+                        </svg></a>
+                    <a href="#" aria-label="Instagram"><svg viewBox="0 0 30 30">
+                            <circle cx="15" cy="15" r="4" />
+                            <path d="M19.999,3h-10..." />
+                        </svg></a>
+                    <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24">
+                            <path d="M22,0H2C0.895,0,0,0.895..." />
+                        </svg></a>
+                </div>
+                <p class="mt-4">Bacon ipsum dolor amet short ribs pig sausage prosciutto chicken.</p>
+            </div>
+        </div>
+
+        <div class="bottom">
+            <p>© Copyright 2020 Lorem Inc. All rights reserved.</p>
+            <ul>
+                <li><a href="#">F.A.Q</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+            </ul>
+        </div>
+    </footer>
+
+
 
     <script src="script.js"></script>
 
