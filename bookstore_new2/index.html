@@ -37,6 +37,14 @@
 
 
         <div class="header-buttons">
+            <div class="search-bar">
+                <div class="search-wrapper">
+                    <span class="search-icon" aria-hidden="true">🔍</span>
+                    <input type="text" id="searchInput" placeholder="Search books by title or author..."
+                        aria-label="Search books" />
+                </div>
+            </div>
+
             <button id="toggleDark" aria-label="Toggle Dark Mode"
                 class="bg-gray-200 hover:bg-gray-300 text-gray-800 rounded px-3 py-1">
                 🌙
@@ -59,10 +67,7 @@
 
     </header>
 
-    <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Search books by title or author..."
-            aria-label="Search books" />
-    </div>
+
 
     <main class="container" id="booksContainer">
         <!-- Books will be shown here dynamically -->

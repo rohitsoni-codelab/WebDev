@@ -75,6 +75,42 @@ body.dark .header-buttons button:hover {
   background-color: #374151; /* Gray-800 */
 }
 
+/* Search Bar */
+
+.search-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: #888;
+  pointer-events: none;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 8px 12px 8px 36px; /* left padding for the icon */
+  font-size: 1rem;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+#searchInput:focus {
+  border-color: #578fca;
+}
+
+/* Dark mode adjustments */
+body.dark .search-icon {
+  color: #bbb;
+}
 
 
 /* for cart image */
@@ -115,8 +151,6 @@ body.dark #cartButton:hover {
 }
 
 /* clear button and checkout button */
-
-/* Style for Clear Cart & Checkout buttons */
 .clear-btn,
 .checkout-btn {
   background-color: #2563eb; /* Blue-600 */
@@ -206,42 +240,98 @@ body.dark .remove-btn {
 }
 
 
+/* Cart section heading */
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
 
+body.dark h2 {
+  color: #e5e5cb;
+}
 
+/* Cart item placeholder message */
+#cartItems p {
+  font-size: 1rem;
+  font-style: italic;
+  color: #777;
+  text-align: center;
+  margin: 20px 0;
+}
 
+body.dark #cartItems p {
+  color: #ccc;
+}
 
+/* Cart total styling */
+.cart-total {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #222;
+  text-align: right;
+  margin: 15px 0;
+}
 
+body.dark .cart-total {
+  color: #f5f5f5;
+}
 
+/* Button base styles */
+.clear-btn,
+.checkout-btn {
+  background-color: #2563eb; /* Blue */
+  color: white;
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  margin: 5px 5px 0 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
+/* Hover effects */
+.clear-btn:hover,
+.checkout-btn:hover {
+  background-color: #1d4ed8;
+}
 
+/* Disabled state */
+.clear-btn:disabled,
+.checkout-btn:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
 
-/* Search Bar */
-.search-bar {
-  padding: 10px 20px;
-  background-color: var(--bg);
+/* Dark mode button disabled state */
+body.dark .clear-btn:disabled,
+body.dark .checkout-btn:disabled {
+  background-color: #444;
+  color: #aaa;
+}
+
+/* Optional: Button spacing container */
+.cart-buttons {
   display: flex;
-  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
   flex-wrap: wrap;
 }
 
-body.dark .search-bar {
-  background-color: var(--bg);
-}
 
-#searchInput {
-  width: 300px;
-  max-width: 90vw;
-  padding: 8px 12px;
-  font-size: 1rem;
-  border: 1px solid #aaa;
-  border-radius: 5px;
-  outline: none;
-  transition: border-color 0.3s;
-}
 
-#searchInput:focus {
-  border-color: #578fca;
-}
+
+
+
+
+
+
+
+
 
 /* Container */
 .container {
