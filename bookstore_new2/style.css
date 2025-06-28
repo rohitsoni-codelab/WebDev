@@ -1,17 +1,19 @@
 :root {
-  --primary: #4361ee;
-  --primary-hover: #3a56d4;
-  --secondary: #3f37c9;
-  --accent: #4cc9f0;
-  --text: #2b2d42;
-  --text-light: #8d99ae;
-  --bg: #f8f9fa;
-  --card-bg: #ffffff;
+  --primary: #3674B5;
+  --primary-hover: #578FCA;
+  --secondary: #578FCA;
+  --accent: #A1E3F9;
+  --text: #3674B5;
+  --text-light: #578FCA;
+  --bg: #D1F8EF;
+  --card-bg: #A1E3F9;
   --success: #4caf50;
   --success-hover: #3e8e41;
   --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
+
+
 
 * {
   box-sizing: border-box;
@@ -30,13 +32,16 @@ body {
 }
 
 body.dark {
-  --text: #f8f9fa;
-  --text-light: #adb5bd;
-  --bg: #212529;
-  --card-bg: #343a40;
-  background-color: var(--bg);
-  color: var(--text);
+  --primary: #00ADB5;
+  --primary-hover: #0297a2;
+  --secondary: #00ADB5;
+  --accent: #EEEEEE;
+  --text: #EEEEEE;
+  --text-light: #EEEEEE;
+  --bg: #222831;
+  --card-bg: #393E46;
 }
+
 
 /* Header */
 /* Shared button styles for header buttons */
@@ -323,16 +328,6 @@ body.dark .checkout-btn:disabled {
 }
 
 
-
-
-
-
-
-
-
-
-
-
 /* Container */
 .container {
   max-width: 1200px;
@@ -342,11 +337,17 @@ body.dark .checkout-btn:disabled {
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: stretch;
 }
 
 /* Book/Card Styling */
 .book,
 .card {
+ display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 220px;
+  min-height: 420px; /* consistent height */
   background-color: var(--card-bg);
   border-radius: 8px;
   box-shadow: var(--shadow);
