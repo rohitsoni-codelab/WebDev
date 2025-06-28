@@ -514,3 +514,208 @@ dark....>
 2nd=#3C2A21
 3rd=#D5CEA3
 4th=#E5E5CB
+
+
+
+
+<div class="card">
+        <div class="card-image">
+            <img src="https://placehold.co/600x400" alt="Modern book cover design with abstract geometric patterns in blue and white colors" />
+            <span class="badge">Bestseller</span>
+        </div>
+        <div class="card-content">
+            <h3 class="title">The Design of Everyday Things</h3>
+            <p class="author">Don Norman</p>
+            
+            <div class="rating">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span class="review-count">(128 reviews)</span>
+            </div>
+             <div class="price-container">
+                <span class="price">$24.99</span>
+                <span class="original-price">$34.99</span>
+            </div>
+            
+            <div class="buttons">
+                <button class="add-btn">
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                </button>
+                <button class="buy-btn">
+                    <i class="fas fa-bolt"></i> Buy Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+        
+        :root {
+            --primary: #4361ee;
+            --primary-hover: #3a56d4;
+            --secondary: #3f37c9;
+            --accent: #4cc9f0;
+            --text: #2b2d42;
+            --text-light: #8d99ae;
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --success: #4caf50;
+            --success-hover: #3e8e41;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+
+
+                .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+        .card-content {
+            padding: 20px;
+        }
+
+
+
+
+
+         .author {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+        .author::before {
+            content: "by";
+            margin-right: 4px;
+            font-style: italic;
+            color: var(--text-light);
+        }
+        .price-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .price {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        .original-price {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-decoration: line-through;
+        }
+        .rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .stars {
+            color: #ffc107;
+            margin-right: 8px;
+        }
+        .review-count {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+        button {
+            flex: 1;
+            padding: 10px 0;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        button i {
+            margin-right: 6px;
+        }
+        .add-btn {
+            background-color: var(--success);
+            color: white;
+        }
+        .add-btn:hover {
+            background-color: var(--success-hover);
+        }
+        .buy-btn {
+            background-color: var(--primary);
+            color: white;
+        }
+        .buy-btn:hover {
+            background-color: var(--primary-hover);
+        }
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        /* Dark mode styles */
+        body.dark {
+            --text: #f8f9fa;
+            --text-light: #adb5bd;
+            --bg: #212529;
+            --card-bg: #343a40;
+        }
+         /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .card {
+                max-width: 100%;
+            }
+            
+            .buttons {
+                flex-direction: column;
+            }
+        }
