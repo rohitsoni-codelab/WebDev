@@ -88,60 +88,187 @@
     </div>
 
 
-    <!-- footer -->
-    <footer class="footer">
-        <div class="grid">
-            <div>
-                <a href="#" class="logo">
-                    <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
-                        <rect x="3" y="1" width="7" height="12" />
-                        <rect x="3" y="17" width="7" height="6" />
-                        <rect x="14" y="1" width="7" height="6" />
-                        <rect x="14" y="11" width="7" height="12" />
-                    </svg>
-                    Company
-                </a>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                <p class="mt-4">Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                    explicabo.</p>
-            </div>
 
-            <div>
-                <h3>Contacts</h3>
-                <p><strong>Phone:</strong> <a href="tel:850-123-5021">850-123-5021</a></p>
-                <p><strong>Email:</strong> <a href="mailto:info@lorem.mail">info@lorem.mail</a></p>
-                <p><strong>Address:</strong> <a href="https://www.google.com/maps" target="_blank">312 Lovely Street,
-                        NY</a></p>
-            </div>
+    <!-- contact us -->
+    <!-- source https://tailblocks.cc/ -->
+    <section
+        class="text-gray-600 body-font relative mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 bg-black dark:bg-gray-300">
 
-            <div>
-                <h3>Social</h3>
-                <div class="socials">
-                    <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24">
-                            <path d="M24,4.6c-0.9,0.4-1.8,0.7-2.8..." />
-                        </svg></a>
-                    <a href="#" aria-label="Instagram"><svg viewBox="0 0 30 30">
-                            <circle cx="15" cy="15" r="4" />
-                            <path d="M19.999,3h-10..." />
-                        </svg></a>
-                    <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24">
-                            <path d="M22,0H2C0.895,0,0,0.895..." />
-                        </svg></a>
+        <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
+            <div
+                class="lg:w-2/3 md:w-1/2 bg-white rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
+                <iframe width="100%" height="100%" class="absolute inset-0" frameborder="0" title="map" marginheight="0"
+                    marginwidth="0" scrolling="no"
+                    src="https://maps.google.com/maps?q=Vivekananda%20Sarani,%20Asansol,%20West%20Bengal,%20India&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                    style="filter: grayscale(1) contrast(1.2) opacity(0.4);"></iframe>
+                <div class="bg-white relative flex flex-wrap py-6 rounded shadow-md">
+                    <div class="lg:w-1/2 px-6">
+                        <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
+                        <p class="mt-1">Vivekananda Sarani, <br /> Asansol - 713305, <br /> West Bengal, India</p>
+                    </div>
+                    <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
+                        <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
+                        <a href="mailto:rohitsoni3084@gamil.com"
+                            class="text-red-500 leading-relaxed">rohitsoni3084@gamil.com</a>
+                        <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
+                        <p class="leading-relaxed">8092681320</p>
+                    </div>
                 </div>
-                <p class="mt-4">Bacon ipsum dolor amet short ribs pig sausage prosciutto chicken.</p>
+            </div>
+            <div class="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0 p-6 sm:p-10">
+                <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">Feedback</h2>
+                <p class="leading-relaxed mb-5 text-gray-600">
+                    Your feedback matters to us.<br />
+                    Help us improve and serve you better
+                </p>
+
+                <form id="feedbackForm">
+                    <div class="relative mb-4">
+                        <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
+                        <input type="text" id="name" name="name" required
+                            class="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                    </div>
+                    <div class="relative mb-4">
+                        <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+                        <input type="email" id="email" name="email" required
+                            class="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                    </div>
+                    <div class="relative mb-4">
+                        <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
+                        <textarea id="message" name="message" required
+                            class="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full sm:w-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">
+                        Submit
+                    </button>
+                </form>
+
+                <p class="text-xs text-gray-500 mt-3">
+                    Thank you for your valuable feedback! We appreciate you taking the time to share your thoughts.
+                </p>
+            </div>
+
+            <script>
+                document.getElementById('feedbackForm').addEventListener('submit', function (event) {
+                    event.preventDefault(); // prevent actual form submission
+
+                    // Simple alert on submission, you can replace this with AJAX or API call
+                    alert('Thank you for your feedback, ' + this.name.value + '!');
+
+                    // Optionally reset form
+                    this.reset();
+                });
+            </script>
+
+
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- footer -->
+    <footer
+        class="bg-gray-900 text-white px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+        <div class="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="sm:col-span-2">
+                <a href="/" aria-label="Go home" title="Company" class="inline-flex items-center">
+                    <span class="ml-2 text-xl font-bold tracking-wide uppercase"><img class="h-12px"
+                            src="https://epustakalay.com/wp-content/uploads/2018/12/cropped-logohindi-1.jpg"
+                            alt=""></span>
+                </a>
+                <div class="mt-6 lg:max-w-sm">
+                    <p class="text-sm">
+                        Here, we believe every great story deserves a home. Our shelves are filled with books that
+                        inspire, inform, and entertain. Dive into our world of fiction, nonfiction, children’s books,
+                        and more — there’s always a new favorite waiting for you.
+                    </p>
+                    <p class="mt-4 text-sm">
+                        it’s a community of readers. We handpick titles with care, aiming to connect every reader with
+                        the stories that move them. Whether online or in-store, your next page-turner is right here.
+                    </p>
+                </div>
+            </div>
+            <div class="space-y-2 text-sm">
+                <p class="text-base font-bold tracking-wide">Contacts</p>
+                <div class="flex">
+                    <p class="mr-1">Phone:</p>
+                    <a href="tel:850-123-5021"
+                        class="transition-colors duration-300 text-blue-400 hover:text-blue-200">8092681320</a>
+                </div>
+                <div class="flex">
+                    <p class="mr-1">Email:</p>
+                    <a href="mailto:info@lorem.mail"
+                        class="transition-colors duration-300 text-blue-400 hover:text-blue-200">rohitsoni3084@gamil.com</a>
+                </div>
+                <div class="flex">
+                    <p class="mr-1">Address:</p>
+                    <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer"
+                        class="transition-colors duration-300 text-blue-400 hover:text-blue-200">
+                        Vivekananda Sarani,
+                        Asansol - 713305,
+                        West Bengal, India
+                    </a>
+                </div>
+            </div>
+            <div>
+                <span class="text-base font-bold tracking-wide">Social</span>
+                <div class="flex items-center mt-1 space-x-3">
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"
+                        class="text-gray-400 transition-colors duration-300 hover:text-white" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor" class="h-5" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7zm5.75-.25a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z" />
+                        </svg>
+                    </a>
+
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"
+                        class="text-gray-400 transition-colors duration-300 hover:text-white" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor" class="h-6" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M4.98 3.5a2.5 2.5 0 11-.002 5.001A2.5 2.5 0 014.98 3.5zM3 8.75h3.96v11.5H3v-11.5zM8.75 8.75h3.79v1.56h.05c.53-1 1.83-2.05 3.76-2.05 4.02 0 4.76 2.64 4.76 6.06v6.93h-3.95v-6.13c0-1.47-.03-3.36-2.05-3.36-2.05 0-2.36 1.6-2.36 3.25v6.24H8.75v-11.5z" />
+                        </svg>
+                    </a>
+
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"
+                        class="text-gray-400 transition-colors duration-300 hover:text-white" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="currentColor" class="h-5" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99h-2.54v-2.89h2.54V9.41c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.25c-1.23 0-1.61.77-1.61 1.56v1.87h2.74l-.44 2.89h-2.3v6.99C18.34 21.12 22 16.99 22 12z" />
+                        </svg>
+                    </a>
+                </div>
+
+                <p class="mt-4 text-sm text-gray-400">
+                    Bacon ipsum dolor amet short ribs pig sausage prosciutto chicken spare ribs salami.
+                </p>
             </div>
         </div>
-
-        <div class="bottom">
-            <p>© Copyright 2020 Lorem Inc. All rights reserved.</p>
-            <ul>
-                <li><a href="#">F.A.Q</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms & Conditions</a></li>
+        <div class="flex flex-col-reverse justify-between pt-5 pb-10 border-t border-gray-700 lg:flex-row">
+            <p class="text-sm text-gray-400">
+                © Copyright 2020 Lorem Inc. All rights reserved.
+            </p>
+            <ul class="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
+                <li>
+                    <a href="/" class="text-sm text-gray-400 transition-colors duration-300 hover:text-white">F.A.Q</a>
+                </li>
+                <li>
+                    <a href="/" class="text-sm text-gray-400 transition-colors duration-300 hover:text-white">Privacy
+                        Policy</a>
+                </li>
+                <li>
+                    <a href="/" class="text-sm text-gray-400 transition-colors duration-300 hover:text-white">Terms
+                        &amp; Conditions</a>
+                </li>
             </ul>
         </div>
     </footer>
-
 
 
     <script src="script.js"></script>
