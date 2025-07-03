@@ -12,20 +12,16 @@
 </head>
 
 <body class="relative">
-
     <header class="flex items-center justify-between px-6 py-4 bg-white shadow sticky top-0 z-50 ">
         <div class="flex-shrink-0 flex items-center">
-            <a href="#" class="text-xl text-blue-600 font-bold text-gray-800"><img class="h-14 w-auto object-contain"
-                    src="https://epustakalay.com/wp-content/uploads/2018/12/cropped-logohindi-1.jpg" alt=""></a>
+            <a href="/" onclick="location.href='/'" class="text-xl text-blue-600 font-bold text-gray-800">
+                <img class="h-14 w-auto object-contain"
+                    src="https://epustakalay.com/wp-content/uploads/2018/12/cropped-logohindi-1.jpg" alt="Logo" />
+            </a>
         </div>
+
         <div class="header-buttons">
-            <div class="search-bar">
-                <div class="search-wrapper">
-                    <span class="search-icon" aria-hidden="true">🔍</span>
-                    <input type="text" id="searchInput" placeholder="Search books by title or author..."
-                        aria-label="Search books" />
-                </div>
-            </div>
+
             <button id="toggleDark" aria-label="Toggle Dark Mode"
                 class="bg-gray-200 hover:bg-gray-300 text-gray-800 rounded px-3 py-1">
                 🌙
@@ -44,13 +40,39 @@
         </div>
     </header>
 
-    <main class="container" id="booksContainer">
+
+
+    <!-- home page logo -->
+    <section class="w-full">
+        <div
+            class="w-full h-[520px] bg-[url('https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/de183023226903.563215671df33.jpg')] bg-cover bg-no-repeat bg-center flex flex-col justify-center items-center ">
+            <!-- Photo by '@insolitus' on Unsplash -->
+            <div>
+                <h1
+                    class="text-white text-center xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl :text-xl font-semibold bg-gray-800 p-2 bg-opacity-40 rounded-sm">
+                    Find your next great read</h1>
+            </div>
+            <div class="p-4 text-gray-600 dark:text-gray-300 outline-none focus:outline-none">
+                <div class="relative flex">
+                    <div class="search-bar">
+                        <div class="search-wrapper" >
+                            <span class="search-icon" aria-hidden="true">🔍</span>
+                            <input type="text" id="searchInput" class="text-black  dark:bg-gray-200" placeholder="Search books by title or author..."
+                                aria-label="Search books" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <main class="container bg-black dark:bg-gray-800" id="booksContainer">
         <!-- Books will be shown here dynamically -->
     </main>
-
-
-
-
 
     <aside class="cart" aria-label="Shopping cart">
         <h2>Your Cart</h2>
@@ -87,10 +109,7 @@
         </div>
     </div>
 
-
-
     <!-- contact us -->
-    <!-- source https://tailblocks.cc/ -->
     <section
         class="text-gray-600 body-font relative mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 bg-black dark:bg-gray-300">
 
@@ -164,11 +183,6 @@
 
         </div>
     </section>
-
-
-
-
-
 
     <!-- footer -->
     <footer
@@ -270,9 +284,7 @@
         </div>
     </footer>
 
-
     <script src="script.js"></script>
-
 </body>
 
 </html>

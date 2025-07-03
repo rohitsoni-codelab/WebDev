@@ -281,15 +281,6 @@ const books = [
   }
 ];
 
-
-
-
-
-
-
-
-
-
 const booksContainer = document.getElementById("booksContainer");
 const searchInput = document.getElementById("searchInput");
 const cartItemsDiv = document.getElementById("cartItems");
@@ -303,18 +294,24 @@ const paymentForm = document.getElementById("paymentForm");
 const payAmountSpan = document.getElementById("payAmount");
 const paymentMessageDiv = document.getElementById("paymentMessage");
 const cartButton = document.getElementById("cartButton");
-const cartElement = document.getElementById("cart"); // Renamed variable
-let cart = {}; // This will hold the cart items
+const cartElement = document.getElementById("cart"); 
+let cart = {}; 
+
+
 // Initialize dark mode from localStorage if available
 if (localStorage.getItem("darkMode") === "true") {
   document.body.classList.add("dark");
   toggleDarkBtn.textContent = "☀️ Light Mode";
 }
+
+
 // Function to toggle cart visibility
 cartButton.addEventListener("click", () => {
   cartElement.style.display =
     cartElement.style.display === "block" ? "none" : "block";
 });
+
+
 
 // Render books
 function renderBooks(bookList) {
@@ -324,7 +321,6 @@ function renderBooks(bookList) {
     booksContainer.innerHTML = '<p style="font-size:1.2rem;">No books found.</p>';
     return;
   }
-
   bookList.forEach((book) => {
     const bookDiv = document.createElement("div");
     bookDiv.classList.add("card"); // Apply Tailwind classes if needed
@@ -364,11 +360,8 @@ function renderBooks(bookList) {
           </div>
       </div>
     `;
-
     booksContainer.appendChild(bookDiv);
   });
-
-  // Attach event listeners to buttons
   attachButtonListeners();
 }
 
@@ -377,7 +370,6 @@ function attachButtonListeners() {
   document.querySelectorAll(".add-btn").forEach((btn) => {
     btn.addEventListener("click", () => addToCart(parseInt(btn.dataset.id)));
   });
-
   document.querySelectorAll(".buy-btn").forEach((btn) => {
     btn.addEventListener("click", () => buyNow(parseInt(btn.dataset.id)));
   });
