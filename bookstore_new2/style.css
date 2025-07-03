@@ -51,25 +51,7 @@ body.dark {
   --color-footer-bg: #111827;
 }
 
-/* Header */
 
-
-.centered-header {
-  position: fixed;
-  top: 50%;
-  left: 0;
-  right: 0;
-  transform: translateY(-50%);
-  background: white;
-  width: 100%;
-  z-index: 100;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
 /* Push main content down to avoid hiding under fixed header */
 .container {
